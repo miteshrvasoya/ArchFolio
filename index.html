@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>.PLN architects — Ar. Ayush Vasoya | Climate-Responsive Architecture, Surat</title>
+<meta name="description" content=".PLN architects is a Surat-based architecture and interior design practice founded by Ar. Ayush Vasoya, crafting climate-responsive residences, retreats, interiors and facades.">
+<meta property="og:title" content=".PLN architects — Ar. Ayush Vasoya">
+<meta property="og:description" content="Climate-responsive architecture and interiors from Surat, Gujarat.">
+<meta property="og:image" content="assets/img/retreat-1.jpg">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%236E3511'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Montserrat:wght@300;400;500;600;700&family=Righteous&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="grid-bg" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="header-in">
+    <a class="brand" href="#top" aria-label=".PLN architects — home">
+      <span class="dot" aria-hidden="true"></span>PLN<span class="sub">architects</span>
+    </a>
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#philosophy"><span>01</span>Philosophy</a>
+      <a href="#projects"><span>02</span>Projects</a>
+      <a href="#process"><span>03</span>Process</a>
+      <a href="#scales"><span>04</span>Method</a>
+      <a href="#studio"><span>05</span>Studio</a>
+      <a href="#contact" class="nav-cta">Start a Project</a>
+    </nav>
+  </div>
+  <div class="ruler" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <span class="micro">Climate-responsive architecture · Surat, Gujarat</span>
+      <h1>Good buildings begin as <span class="sage">honest plans</span> &amp; <span class="terra">living light</span>.</h1>
+      <p class="desc">
+        <strong>.PLN architects</strong> is an architecture and interior design studio founded by
+        <strong>Ar. Ayush Vasoya</strong>. We start with the plan — where breeze, daylight, solar
+        orientation and tactile materials are resolved long before a facade is drawn.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">Explore the Work</a>
+        <a class="btn" href="#contact">Start a Project</a>
+      </div>
+    </div>
+
+    <figure class="study" id="heroStudy">
+      <div class="study-stage">
+        <canvas id="heroCanvas" aria-label="Interactive 3D study model: a floor plan drafts itself, rises into a house of concrete and brick, and the sun moves across it. Drag to orbit."></canvas>
+        <img class="study-fallback" src="assets/img/retreat-7.jpg" alt="Aerial view of Weekend Retreat" loading="lazy">
+        <ol class="phases" id="phases" aria-hidden="true">
+          <li>Plan</li><li>Structure</li><li>Envelope</li><li>Light</li>
+        </ol>
+        <span class="hint">Drag to orbit</span>
+      </div>
+      <figcaption class="titleblock">
+        <div class="tb-sun">
+          <label for="sunRange">Sun path</label>
+          <span class="mono">06:00</span>
+          <input type="range" id="sunRange" min="0" max="1000" value="400" aria-label="Time of day for the sun study">
+          <span class="mono">18:00</span>
+        </div>
+        <div><span class="tb-k">Time</span><span class="tb-v mono" id="sunTime">10:48</span></div>
+        <div><span class="tb-k">Drawing</span><span class="tb-v">Passive solar study</span></div>
+        <button type="button" class="btn small" id="replayBtn">Re-draft plan</button>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== PHILOSOPHY ===================== -->
+  <section id="philosophy" class="sheet wrap">
+    <div class="sheet-bar"><span class="code">A1</span><span>Philosophy</span><span>Scale 1:500</span></div>
+    <div class="pillars">
+      <article class="card reveal">
+        <span class="micro">01 · Solace</span>
+        <h3>Light Before Form</h3>
+        <p>Inspired by passive mountain solar planning and courtyard microclimates, we carve openings, water bodies and shaded terraces before enclosing walls.</p>
+      </article>
+      <article class="card reveal">
+        <span class="micro">02 · Honest materiality</span>
+        <h3>Tactile Skins</h3>
+        <p>Board-formed exposed concrete, handcrafted red brick, lime plaster and regional stone, left honest so every structure weathers with quiet dignity.</p>
+      </article>
+      <article class="card reveal">
+        <span class="micro">03 · Spatial continuity</span>
+        <h3>Zero Dead Corridors</h3>
+        <p>Every passage is choreographed as a sunlit gallery, sunken conversation court or verandah where architecture and landscape continuously converse.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects" class="sheet wrap">
+    <div class="sheet-bar"><span class="code">A2</span><span>Selected Projects</span><span>Scale 1:100</span></div>
+    <div class="title-row">
+      <div>
+        <span class="micro">Residences · Interiors · Facades</span>
+        <h2>Selected Projects</h2>
+      </div>
+    </div>
+
+    <div id="featured" class="featured"></div>
+
+    <div class="register reveal">
+      <div class="register-head">
+        <h3>Project Register</h3>
+        <div class="filters" id="filters" role="group" aria-label="Filter projects by category"></div>
+      </div>
+      <div id="registerList" class="register-list"></div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS ===================== -->
+  <section id="process" class="sheet wrap">
+    <div class="sheet-bar"><span class="code">A3</span><span>Process</span><span>Scale 1:50</span></div>
+    <div class="split">
+      <div class="reveal">
+        <span class="micro">From context to detail</span>
+        <h2>The Process</h2>
+        <p class="desc">
+          Every space is born out of its context: the climate, the terrain and the way a family
+          gathers from morning tea to dusk. We do not impose a fixed formula; each site — in Surat,
+          Ahmedabad or the Indian Himalayas — guides its own architectural response.
+        </p>
+        <p class="desc">
+          With a core palette of board-formed concrete, handcrafted brick, natural stone and
+          reclaimed timber, we test how light grazes every texture, from a 1:500 site plan down to
+          a custom door handle.
+        </p>
+      </div>
+      <ol class="steps">
+        <li class="reveal"><span class="step-n">01</span><div><h3>Formwork</h3><p>Shuttering patterns and tie-rod rhythms drawn before a single column is poured.</p></div></li>
+        <li class="reveal"><span class="step-n">02</span><div><h3>Joinery</h3><p>Hand-turned timber profiles and tactile brass hardware crafted with local artisans.</p></div></li>
+        <li class="reveal"><span class="step-n">03</span><div><h3>Microclimate</h3><p>Solar angles and breeze tested through physical brick jaali mock-ups.</p></div></li>
+        <li class="reveal"><span class="step-n">04</span><div><h3>Sun &amp; Shadow</h3><p>Choreographing how winter sunlight and foliage shadows move across floors through the day.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== METHOD / SCALES ===================== -->
+  <section id="scales" class="sheet wrap">
+    <div class="sheet-bar"><span class="code">A4</span><span>Method at every scale</span><span>Scale <span id="scaleLabel">1:500</span></span></div>
+    <div class="split split-wide">
+      <div class="reveal">
+        <span class="micro">One idea, tested at every scale</span>
+        <h2>Our Method</h2>
+        <p class="desc">
+          A plan only works if it holds up when you look closer. We draw each project from the whole
+          plot down to a single brick joint, checking that the same environmental logic runs through
+          all of it.
+        </p>
+        <div class="seg" id="scaleSeg" role="group" aria-label="Drawing scale">
+          <button type="button" data-scale="site" aria-pressed="true">1:500 Site</button>
+          <button type="button" data-scale="section" aria-pressed="false">1:100 Section</button>
+          <button type="button" data-scale="detail" aria-pressed="false">1:5 Detail</button>
+        </div>
+        <p class="desc note" id="scaleCaption" aria-live="polite"></p>
+      </div>
+      <figure class="study reveal" id="scaleStudy">
+        <div class="study-stage">
+          <canvas id="scaleCanvas" aria-label="Interactive 3D model shown as a site plan, a section cut and a brick jaali wall detail. Drag to orbit."></canvas>
+          <img class="study-fallback" src="assets/img/retreat-8.jpg" alt="Front elevation of Weekend Retreat" loading="lazy">
+          <div class="pins" id="scalePins" aria-hidden="true"></div>
+          <span class="hint">Drag to orbit</span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== STUDIO ===================== -->
+  <section id="studio" class="sheet wrap">
+    <div class="sheet-bar"><span class="code">A5</span><span>Studio</span><span>Scale 1:20</span></div>
+    <article class="founder">
+      <div class="portrait reveal">
+        <img src="assets/img/founder.jpg" alt="Ar. Ayush Vasoya, Principal and Founder Architect of .PLN architects" width="700" height="700" loading="lazy">
+      </div>
+      <div class="reveal">
+        <span class="micro">Principal &amp; Founder Architect</span>
+        <h2 class="founder-name">Ar. Ayush Vasoya</h2>
+        <p class="desc">
+          I am an architect based in Surat, dedicated to crafting grounded, climate-responsive
+          spaces that balance honest materiality with contemporary living. My approach was shaped by
+          hands-on practice in the Indian Himalayas, where designing for sensitive mountain terrain
+          and extreme seasons taught me the value of passive solar planning, contextual resilience
+          and vernacular wisdom.
+        </p>
+        <p class="desc">
+          Today I bring that environmental sensitivity back to Gujarat — private villas, weekend
+          retreats and urban residences built from exposed concrete, natural stone and brick, with
+          thoughtful indoor-outdoor connections and architecture that ages gracefully.
+        </p>
+        <dl class="stats">
+          <div><dt>Himalayan Roots</dt><dd>Passive solar &amp; mountain terrain practice</dd></div>
+          <div><dt>Surat &amp; Gujarat</dt><dd>Villas, retreats &amp; urban homes</dd></div>
+          <div><dt>Tactile Craft</dt><dd>Exposed concrete, brick &amp; natural stone</dd></div>
+        </dl>
+      </div>
+    </article>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="sheet wrap">
+    <div class="sheet-bar"><span class="code">A6</span><span>Contact</span><span>Scale 1:1</span></div>
+    <div class="split">
+      <div class="reveal">
+        <span class="micro">Start a project with .PLN architects</span>
+        <h2>Commission &amp; Contact</h2>
+        <p class="desc">
+          Planning a bungalow, weekend retreat, interior or facade? Share your plot location, brief
+          and timeline — Ar. Ayush Vasoya personally reviews every inquiry.
+        </p>
+        <a class="mail" href="mailto:arvasoya2004@gmail.com">arvasoya2004@gmail.com</a>
+        <dl class="contact-dl">
+          <div><dt>Studio</dt><dd>F-304 Business Hub, Surat, Gujarat, India</dd></div>
+          <div><dt>Mobile / WhatsApp</dt><dd><a href="tel:+919512991287">+91 95129 91287</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://instagram.com/.pln_architects" target="_blank" rel="noopener">.pln_architects</a></dd></div>
+        </dl>
+      </div>
+      <form id="briefForm" class="form reveal" novalidate>
+        <h3>Send a Project Brief</h3>
+        <div class="row2">
+          <label>Your name<input type="text" name="name" autocomplete="name" required></label>
+          <label>Mobile number<input type="tel" name="phone" autocomplete="tel" required></label>
+        </div>
+        <div class="row2">
+          <label>Project type
+            <select name="category">
+              <option>Residential / Bungalow</option>
+              <option>Interior Architecture</option>
+              <option>Facade &amp; Envelope</option>
+              <option>Landscape / Other</option>
+            </select>
+          </label>
+          <label>Site location<input type="text" name="location" placeholder="e.g. Surat, Ahmedabad"></label>
+        </div>
+        <label>Brief<textarea name="message" rows="4" placeholder="Plot size, requirements and approximate timeline" required></textarea></label>
+        <div class="cta">
+          <button type="submit" class="btn primary" data-via="whatsapp">Send via WhatsApp</button>
+          <button type="submit" class="btn" data-via="email">Send via Email</button>
+        </div>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer wrap">
+  <span>&copy; <span id="year">2026</span> <strong>.PLN architects</strong> · Ar. Ayush Vasoya · Surat, Gujarat</span>
+  <a href="#top" class="btn small">Back to top ↑</a>
+</footer>
+
+<!-- Photo lightbox -->
+<dialog class="lightbox" id="lightbox" aria-label="Project photograph">
+  <button type="button" class="lb-close" id="lbClose" aria-label="Close">×</button>
+  <button type="button" class="lb-nav prev" id="lbPrev" aria-label="Previous photograph">‹</button>
+  <figure>
+    <img id="lbImg" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button type="button" class="lb-nav next" id="lbNext" aria-label="Next photograph">›</button>
+</dialog>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
