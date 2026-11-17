@@ -17,7 +17,10 @@ Publish the repository root as a static site (GitHub Pages, Vercel, Netlify, Clo
 - `js/projects.js` — project list, photo captions and contact details. Projects with `images` appear as featured works.
 - `assets/img/` — photographs.
 - `plan-to-3d.html`, `js/plan-tool.js`, `css/tool.css` — the Plan to 3D page (linked from the home page).
-- `js/plan3d.js` — its engine: reads walls, doors, windows and rooms from an uploaded plan image and builds the model (massing, 1.2 m cut plan or full 3D), entirely in the browser. Exports PNG and GLB.
+- `js/plan/analyse.js` — reads walls, doors, windows, rooms and the footprint from an uploaded plan image.
+- `js/plan/furnish.js` — guesses room types and lays out furniture, plants and lamps per room.
+- `js/plan/viewer.js` — builds and renders the model (massing, cut plan or full 3D; finishes, lighting, styles, sections, site) and exports PNG/GLB.
+- `js/plan/sample.js` — the built-in sample plan.
 - `vendor/addons/` — Three.js OrbitControls and GLTFExporter, used only by the Plan to 3D page.
 - `js/scene.js` — the 3D study model (Three.js, vendored in `vendor/`).
 - `index.html`, `css/style.css` — page copy and styling.
