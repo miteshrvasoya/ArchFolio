@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plan to 3D — .PLN architects</title>
+<meta name="description" content="Upload a 2D floor plan and see it as a 3D model: massing, a 1.2 m cut plan, or a full model with doors, windows, floors and storeys. Free, in your browser, by .PLN architects.">
+<meta property="og:title" content="Plan to 3D — .PLN architects">
+<meta property="og:description" content="Turn a 2D floor plan into a 3D model in your browser.">
+<meta property="og:image" content="assets/img/plan-to-3d-preview.jpg">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%236E3511'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Montserrat:wght@300;400;500;600;700&family=Righteous&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/tool.css">
+<script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js" } }</script>
+</head>
+<body class="tool-page">
+<div class="grid-bg" aria-hidden="true"></div>
+<a class="skip" href="#tool">Skip to the tool</a>
+
+<header class="site-header">
+  <div class="header-in">
+    <a class="brand" href="index.html" aria-label=".PLN architects — home">
+      <span class="dot" aria-hidden="true"></span>PLN<span class="sub">architects</span>
+    </a>
+    <nav class="tool-nav" aria-label="Primary">
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#contact" class="nav-cta">Start a Project</a>
+    </nav>
+  </div>
+  <div class="ruler" aria-hidden="true"></div>
+</header>
+
+<main id="tool" class="tool wrap">
+  <div class="tool-intro">
+    <a class="back" href="index.html">← Portfolio</a>
+    <span class="micro">Studio tool · Plan to 3D</span>
+    <h1>Raise your plan into 3D</h1>
+    <p class="desc">Upload a 2D floor plan and read it as a massing model, a cut plan, or a full 3D model with doors, windows and floors. Your drawing is processed in your browser and never leaves your device.</p>
+  </div>
+
+  <div class="tool-grid">
+    <!-- ================= CONTROLS ================= -->
+    <aside class="panel" aria-label="Plan to 3D settings">
+
+      <section class="panel-sec">
+        <h2 class="panel-h"><span>01</span>Plan</h2>
+        <div class="cta tight">
+          <label class="btn primary" for="pFile">Upload a plan</label>
+          <input type="file" id="pFile" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp,image/svg+xml" class="visually-hidden">
+          <button type="button" class="btn" id="pSample">Try a sample</button>
+        </div>
+        <figure class="detect" id="detectFig" hidden>
+          <canvas id="detectCanvas" aria-label="Your plan with detected walls, doors, windows and rooms overlaid"></canvas>
+          <figcaption class="legend">
+            <span><i class="sw wall"></i>Wall</span><span><i class="sw door"></i>Door</span>
+            <span><i class="sw window"></i>Window</span><span><i class="sw open"></i>Opening</span><span><i class="sw room"></i>Room</span>
+          </figcaption>
+        </figure>
+        <dl class="kpis" id="kpis" hidden>
+          <div><dt>Footprint</dt><dd id="kSize">—</dd></div>
+          <div><dt>Built-up</dt><dd id="kBuilt">—</dd></div>
+          <div><dt>Carpet</dt><dd id="kCarpet">—</dd></div>
+          <div><dt>Rooms</dt><dd id="kRooms">—</dd></div>
+          <div><dt>Doors</dt><dd id="kDoors">—</dd></div>
+          <div><dt>Windows</dt><dd id="kWindows">—</dd></div>
+        </dl>
+      </section>
+
+      <fieldset class="panel-sec" id="setModel" disabled>
+        <legend class="panel-h"><span>02</span>Model</legend>
+        <div class="field">
+          <span class="field-k" id="modeLbl">Representation</span>
+          <div class="seg seg-3" role="radiogroup" aria-labelledby="modeLbl" id="modeSeg">
+            <button type="button" role="radio" data-mode="massing" aria-checked="false">Massing</button>
+            <button type="button" role="radio" data-mode="cut" aria-checked="false">Cut plan</button>
+            <button type="button" role="radio" data-mode="full" aria-checked="true">Full 3D</button>
+          </div>
+          <p class="field-help" id="modeHelp"></p>
+        </div>
+        <div class="field">
+          <span class="field-k" id="styleLbl">Finish</span>
+          <div class="swatches" role="radiogroup" aria-labelledby="styleLbl" id="styleSeg">
+            <button type="button" role="radio" data-style="plaster" aria-checked="true"><i style="--a:#efebe3;--b:#b98b5e"></i>Lime plaster</button>
+            <button type="button" role="radio" data-style="concrete" aria-checked="false"><i style="--a:#cfcdc6;--b:#b9b8a6"></i>Exposed concrete</button>
+            <button type="button" role="radio" data-style="brick" aria-checked="false"><i style="--a:#a85a32;--b:#d6a07c"></i>Red brick</button>
+            <button type="button" role="radio" data-style="card" aria-checked="false"><i style="--a:#fbfaf6;--b:#e8dcc4"></i>White card model</button>
+          </div>
+        </div>
+        <div class="field" id="storeyField">
+          <span class="field-k" id="stLbl">Storeys</span>
+          <div class="seg seg-3" role="radiogroup" aria-labelledby="stLbl" id="storeySeg">
+            <button type="button" role="radio" data-storeys="1" aria-checked="true">G</button>
+            <button type="button" role="radio" data-storeys="2" aria-checked="false">G + 1</button>
+            <button type="button" role="radio" data-storeys="3" aria-checked="false">G + 2</button>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="panel-sec" id="setDims" disabled>
+        <legend class="panel-h"><span>03</span>Dimensions</legend>
+        <label class="range">Building width <output id="oWidth">12 m</output>
+          <input type="range" id="rWidth" min="4" max="60" step="0.5" value="12">
+        </label>
+        <p class="field-help">Outer-to-outer width of the walls. Sets the scale for every other measurement.</p>
+        <label class="range" id="heightField">Floor-to-floor height <output id="oHeight">3.0 m</output>
+          <input type="range" id="rHeight" min="2.4" max="5" step="0.1" value="3">
+        </label>
+      </fieldset>
+
+      <fieldset class="panel-sec" id="setElems" disabled>
+        <legend class="panel-h"><span>04</span>Elements</legend>
+        <div class="checks">
+          <label><input type="checkbox" id="cDoors" checked> Doors</label>
+          <label><input type="checkbox" id="cWindows" checked> Windows</label>
+          <label><input type="checkbox" id="cFloors" checked> Floor finish</label>
+          <label><input type="checkbox" id="cRoof"> Roof slab</label>
+          <label><input type="checkbox" id="cLabels" checked> Room areas</label>
+          <label><input type="checkbox" id="cUnderlay" checked> Drawing underlay</label>
+        </div>
+        <p class="field-help">Click any door or window in the model to change it: door → window → open → wall.</p>
+        <button type="button" class="btn small" id="resetOpenings">Reset openings</button>
+      </fieldset>
+
+      <fieldset class="panel-sec" id="setDetect" disabled>
+        <details>
+          <summary class="panel-h"><span>05</span>Detection</summary>
+          <div class="field">
+            <span class="field-k" id="wsLbl">Walls are drawn</span>
+            <div class="seg" role="radiogroup" aria-labelledby="wsLbl" id="wallStyleSeg">
+              <button type="button" role="radio" data-ws="solid" aria-checked="true">Filled</button>
+              <button type="button" role="radio" data-ws="outlined" aria-checked="false">As two lines</button>
+            </div>
+          </div>
+          <label class="range">Line sensitivity <output id="oSens">50%</output>
+            <input type="range" id="rSens" min="0" max="100" value="50">
+          </label>
+          <label class="range">Ignore small details <output id="oClean">40%</output>
+            <input type="range" id="rClean" min="0" max="100" value="40">
+          </label>
+          <label class="range">Widest opening <output id="oOpen">2.0 m</output>
+            <input type="range" id="rOpen" min="0.8" max="4" step="0.1" value="2">
+          </label>
+          <div class="field">
+            <span class="field-k" id="exLbl">Gaps in outer walls</span>
+            <div class="seg seg-3" role="radiogroup" aria-labelledby="exLbl" id="exteriorSeg">
+              <button type="button" role="radio" data-ex="auto" aria-checked="true">Auto</button>
+              <button type="button" role="radio" data-ex="window" aria-checked="false">Windows</button>
+              <button type="button" role="radio" data-ex="door" aria-checked="false">Doors</button>
+            </div>
+          </div>
+        </details>
+      </fieldset>
+
+      <fieldset class="panel-sec" id="setExport" disabled>
+        <legend class="panel-h"><span>06</span>Export</legend>
+        <div class="cta tight">
+          <button type="button" class="btn" id="dlPng">Image (.png)</button>
+          <button type="button" class="btn" id="dlGlb">3D model (.glb)</button>
+        </div>
+        <p class="field-help">The .glb file opens in Blender, SketchUp (with an importer), Windows 3D Viewer and most web viewers.</p>
+      </fieldset>
+    </aside>
+
+    <!-- ================= VIEWER ================= -->
+    <figure class="viewer study" id="viewer">
+      <div class="study-stage" id="stage">
+        <canvas id="canvas" aria-label="3D model generated from the floor plan. Drag to orbit, scroll or pinch to zoom, right-drag or two-finger drag to pan."></canvas>
+        <div class="pins" id="pins" aria-hidden="true"></div>
+        <div class="drop" id="drop">
+          <svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true"><path d="M8 20 32 8l24 12v24L32 56 8 44Z M8 20l24 12 24-12 M32 32v24" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <strong>Drop a floor plan image here</strong>
+          <span>PNG, JPG, WebP or SVG · dark walls on a light background work best</span>
+        </div>
+        <div class="vtools" id="vtools" hidden>
+          <button type="button" data-view="top">Plan</button>
+          <button type="button" data-view="persp">Axo</button>
+          <button type="button" data-view="eye">Eye level</button>
+          <button type="button" data-view="replay">Replay</button>
+        </div>
+        <span class="hint" id="hint" hidden>Drag to orbit · scroll to zoom</span>
+      </div>
+      <figcaption class="titleblock">
+        <div class="tb-sun">
+          <label for="rSun">Sun</label>
+          <span class="mono">06:00</span>
+          <input type="range" id="rSun" min="0" max="1000" value="350" disabled>
+          <span class="mono">18:00</span>
+        </div>
+        <span id="status" class="status" role="status">No plan loaded</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <aside class="tool-foot">
+    <p>
+      This is a quick reading of a drawing, not a designed model — every wall gets the same height and
+      detection depends on how the plan is drawn. Want your plan developed properly?
+    </p>
+    <a class="btn primary" href="index.html#contact">Talk to Ar. Ayush Vasoya</a>
+  </aside>
+</main>
+
+<script type="module" src="js/plan-tool.js"></script>
+</body>
+</html>
