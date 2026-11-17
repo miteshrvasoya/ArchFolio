@@ -264,3 +264,116 @@ $('scaleSeg').addEventListener('click', (e) => {
   const b = e.target.closest('button');
   if (b && $('scaleStudy').classList.contains('no-webgl')) setScaleText(b.dataset.scale);
 });
+
+/* ---------- plan → 3D visualiser ---------- */
+(() => {
+  const study = $('p3Study'), stage = $('p3Stage'), status = $('p3Status');
+  const tune = $('p3Tune'), fileInput = $('p3File');
+  const MAX_BYTES = 20 * 1024 * 1024;
+  let viewer = null, busy = false;
+
+  const say = (msg, error = false) => {
+    status.textContent = msg;
+    status.classList.toggle('is-error', error);
+  };
+  const opts = () => ({
+    height: Number($('p3Height').value),
+    width: Number($('p3Width').value),
+    sensitivity: $('p3Sens').value / 100,
+    cleanup: $('p3Clean').value / 100
+  });
+  const outputs = () => {
+    $('p3HeightOut').textContent = `${Number($('p3Height').value).toFixed(1)} m`;
+    $('p3WidthOut').textContent = `${$('p3Width').value} m`;
+    $('p3SensOut').textContent = `${$('p3Sens').value}%`;
+    $('p3CleanOut').textContent = `${$('p3Clean').value}%`;
+  };
+  const report = (r, name) => {
+    if (!r) return;
+    if (!r.segments) {
+      say('No walls found — raise “Line sensitivity” or lower “Ignore small details”.', true);
+    } else if (r.coverage > 0.6) {
+      say('Most of the image reads as wall — lower “Line sensitivity”, or use a cleaner line drawing.', true);
+    } else if (r.segments > 700) {
+      say('This looks like a photo or a very busy drawing — the preview works best with a clean line plan. Try raising “Ignore small details”.', true);
+    } else {
+      const o = opts();
+      say(`${name ? `${name} · ` : ''}${o.width} × ${r.depth.toFixed(1)} m · walls ${o.height.toFixed(1)} m · ${r.segments} wall segments`);
+    }
+  };
+
+  let currentName = '';
+  async function show(source, name) {
+    if (busy) return;
+    busy = true;
+    try {
+      if (!webglOk()) throw new Error('nogl');
+      const mod = await import('./plan3d.js');
+      if (source === 'sample') source = mod.samplePlan();
+      viewer = viewer || mod.createPlanViewer($('p3Canvas'));
+      currentName = name;
+      const r = viewer.load(source, opts());
+      viewer.lastResult = r;
+      study.classList.add('is-live');
+      $('p3Tools').hidden = false;
+      tune.disabled = false;
+      report(r, name);
+    } catch (err) {
+      console.error(err);
+      say(err.message === 'nogl'
+        ? 'This browser cannot display 3D graphics (WebGL is unavailable).'
+        : 'Sorry — the 3D preview could not be created from that file.', true);
+    } finally { busy = false; }
+  }
+
+  async function handleFile(file) {
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      say('Please choose an image file (PNG, JPG, WebP or SVG). For a PDF or CAD drawing, export it as an image first.', true);
+      return;
+    }
+    if (file.size > MAX_BYTES) { say('That image is larger than 20 MB — please export a smaller one.', true); return; }
+    say('Reading plan…');
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    try {
+      img.src = url;
+      await img.decode();
+      if (!img.naturalWidth) throw new Error('empty');
+      await show(img, file.name.length > 28 ? `${file.name.slice(0, 25)}…` : file.name);
+    } catch {
+      say('That image could not be read. Try exporting it again as PNG or JPG.', true);
+    } finally { URL.revokeObjectURL(url); }
+  }
+
+  fileInput.addEventListener('change', () => { handleFile(fileInput.files[0]); fileInput.value = ''; });
+  $('p3Sample').addEventListener('click', () => show('sample', 'Sample plan'));
+
+  ['dragenter', 'dragover'].forEach((t) => stage.addEventListener(t, (e) => {
+    e.preventDefault(); stage.classList.add('is-over');
+  }));
+  ['dragleave', 'drop'].forEach((t) => stage.addEventListener(t, (e) => {
+    e.preventDefault();
+    if (t === 'drop' || !stage.contains(e.relatedTarget)) stage.classList.remove('is-over');
+  }));
+  stage.addEventListener('drop', (e) => handleFile(e.dataTransfer.files[0]));
+
+  let raf = 0;
+  tune.addEventListener('input', (e) => {
+    outputs();
+    if (!viewer) return;
+    if (e.target.id === 'p3Height') { viewer.setHeight(opts().height); report(viewer.lastResult, currentName); return; }
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => { viewer.lastResult = viewer.update(opts()); report(viewer.lastResult, currentName); });
+  });
+  $('p3Tools').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b || !viewer) return;
+    const act = b.dataset.act;
+    if (act === 'top' || act === 'persp') viewer.view(act);
+    else if (act === 'in') viewer.zoom(0.8);
+    else if (act === 'out') viewer.zoom(1.25);
+    else viewer.replay();
+  });
+  outputs();
+})();

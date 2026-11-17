@@ -30,7 +30,8 @@
       <a href="#projects"><span>02</span>Projects</a>
       <a href="#process"><span>03</span>Process</a>
       <a href="#scales"><span>04</span>Method</a>
-      <a href="#studio"><span>05</span>Studio</a>
+      <a href="#visualise"><span>05</span>Plan to 3D</a>
+      <a href="#studio"><span>06</span>Studio</a>
       <a href="#contact" class="nav-cta">Start a Project</a>
     </nav>
   </div>
@@ -178,9 +179,72 @@
     </div>
   </section>
 
+  <!-- ===================== PLAN → 3D ===================== -->
+  <section id="visualise" class="sheet wrap">
+    <div class="sheet-bar"><span class="code">A5</span><span>Plan to 3D</span><span>Scale 1:100</span></div>
+    <div class="split split-wide">
+      <div class="reveal">
+        <span class="micro">Visualise your own plan</span>
+        <h2>Raise Your Plan into 3D</h2>
+        <p class="desc">
+          Upload a 2D floor plan and watch its walls rise from the drawing. It is a quick massing
+          preview to help you read the spaces — not a substitute for a designed model.
+        </p>
+
+        <div class="p3-controls" id="p3Controls">
+          <div class="cta">
+            <label class="btn primary" for="p3File">Upload a plan</label>
+            <input type="file" id="p3File" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp,image/svg+xml" class="visually-hidden">
+            <button type="button" class="btn" id="p3Sample">Try a sample plan</button>
+          </div>
+          <fieldset id="p3Tune" disabled>
+            <label>Wall height <output id="p3HeightOut">3.0 m</output>
+              <input type="range" id="p3Height" min="2" max="5" step="0.1" value="3">
+            </label>
+            <label>Plan width <output id="p3WidthOut">12 m</output>
+              <input type="range" id="p3Width" min="4" max="40" step="1" value="12">
+            </label>
+            <label>Line sensitivity <output id="p3SensOut">50%</output>
+              <input type="range" id="p3Sens" min="0" max="100" value="50">
+            </label>
+            <label>Ignore small details <output id="p3CleanOut">40%</output>
+              <input type="range" id="p3Clean" min="0" max="100" value="40">
+            </label>
+          </fieldset>
+          <p class="p3-note">
+            Works best with a clean, straight-on plan: dark walls on a light background (PNG, JPG,
+            WebP or SVG). Your drawing is processed in your browser and never leaves your device.
+          </p>
+        </div>
+      </div>
+
+      <figure class="study reveal" id="p3Study">
+        <div class="study-stage" id="p3Stage">
+          <canvas id="p3Canvas" aria-label="3D model generated from the uploaded floor plan. Drag to orbit."></canvas>
+          <div class="p3-drop" id="p3Drop">
+            <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true"><path d="M8 20 32 8l24 12v24L32 56 8 44Z M8 20l24 12 24-12 M32 32v24" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <strong>Drop a floor plan image here</strong>
+            <span>or use “Upload a plan”</span>
+          </div>
+          <div class="p3-tools" id="p3Tools" hidden>
+            <button type="button" data-act="top">Plan view</button>
+            <button type="button" data-act="persp">3D view</button>
+            <button type="button" data-act="in" aria-label="Zoom in">+</button>
+            <button type="button" data-act="out" aria-label="Zoom out">−</button>
+            <button type="button" data-act="replay">Replay</button>
+          </div>
+          <span class="hint">Drag to orbit</span>
+        </div>
+        <figcaption class="titleblock">
+          <span id="p3Status" role="status">No plan loaded</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- ===================== STUDIO ===================== -->
   <section id="studio" class="sheet wrap">
-    <div class="sheet-bar"><span class="code">A5</span><span>Studio</span><span>Scale 1:20</span></div>
+    <div class="sheet-bar"><span class="code">A6</span><span>Studio</span><span>Scale 1:20</span></div>
     <article class="founder">
       <div class="portrait reveal">
         <img src="assets/img/founder.jpg" alt="Ar. Ayush Vasoya, Principal and Founder Architect of .PLN architects" width="700" height="700" loading="lazy">
@@ -211,7 +275,7 @@
 
   <!-- ===================== CONTACT ===================== -->
   <section id="contact" class="sheet wrap">
-    <div class="sheet-bar"><span class="code">A6</span><span>Contact</span><span>Scale 1:1</span></div>
+    <div class="sheet-bar"><span class="code">A7</span><span>Contact</span><span>Scale 1:1</span></div>
     <div class="split">
       <div class="reveal">
         <span class="micro">Start a project with .PLN architects</span>

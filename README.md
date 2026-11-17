@@ -16,5 +16,6 @@ Publish the repository root as a static site (GitHub Pages, Vercel, Netlify, Clo
 
 - `js/projects.js` — project list, photo captions and contact details. Projects with `images` appear as featured works.
 - `assets/img/` — photographs.
+- `js/plan3d.js` — the “Plan to 3D” visualiser: detects walls in an uploaded plan image and extrudes them, entirely in the browser.
 - `js/scene.js` — the 3D study model (Three.js, vendored in `vendor/`).
 - `index.html`, `css/style.css` — page copy and styling.
