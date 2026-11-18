@@ -1,0 +1,54 @@
+[
+  {
+    "id": "doc1",
+    "projectId": "p-desai",
+    "name": "Floor plans set",
+    "type": "drawing",
+    "version": "v3",
+    "link": "",
+    "note": "Approved plans (PDF)",
+    "sharedWithClient": true,
+    "releasedOn": "2026-10-05",
+    "locked": false,
+    "releaseAfterPaymentId": "pay-d2"
+  },
+  {
+    "id": "doc2",
+    "projectId": "p-desai",
+    "name": "Exterior 3D views",
+    "type": "render",
+    "version": "v2",
+    "link": "",
+    "note": "Watermarked previews shared; final files held",
+    "sharedWithClient": true,
+    "releasedOn": null,
+    "locked": true,
+    "releaseAfterPaymentId": "pay-d3"
+  },
+  {
+    "id": "doc3",
+    "projectId": "p-joshi",
+    "name": "Furniture layout",
+    "type": "drawing",
+    "version": "v4",
+    "link": "",
+    "note": "Shared as view-only PDF",
+    "sharedWithClient": true,
+    "releasedOn": null,
+    "locked": true,
+    "releaseAfterPaymentId": "pay-j2"
+  },
+  {
+    "id": "doc4",
+    "projectId": "p-cafe",
+    "name": "Working drawings",
+    "type": "drawing",
+    "version": "v2",
+    "link": "",
+    "note": "Final set",
+    "sharedWithClient": true,
+    "releasedOn": "2026-08-06",
+    "locked": false,
+    "releaseAfterPaymentId": "pay-c1"
+  }
+]

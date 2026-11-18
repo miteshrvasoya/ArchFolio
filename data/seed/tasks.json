@@ -1,0 +1,62 @@
+[
+  {
+    "id": "t1",
+    "projectId": "p-desai",
+    "phaseId": "ph-d3",
+    "title": "Revise terrace garden 3D view",
+    "assignee": "Ar. Ayush Vasoya",
+    "due": "2026-11-22",
+    "status": "doing",
+    "priority": "high"
+  },
+  {
+    "id": "t2",
+    "projectId": "p-desai",
+    "phaseId": "ph-d3",
+    "title": "Stone cladding material board",
+    "assignee": "Partner architect (sample)",
+    "due": "2026-11-21",
+    "status": "todo",
+    "priority": "medium"
+  },
+  {
+    "id": "t3",
+    "projectId": "p-patel",
+    "phaseId": null,
+    "title": "Send agreement draft",
+    "assignee": "Ar. Ayush Vasoya",
+    "due": "2026-11-20",
+    "status": "todo",
+    "priority": "high"
+  },
+  {
+    "id": "t4",
+    "projectId": "p-joshi",
+    "phaseId": "ph-j2",
+    "title": "Kitchen 3D view revision",
+    "assignee": "Ar. Ayush Vasoya",
+    "due": "2026-11-19",
+    "status": "doing",
+    "priority": "high"
+  },
+  {
+    "id": "t5",
+    "projectId": "p-joshi",
+    "phaseId": null,
+    "title": "Get agreement signed",
+    "assignee": "Ar. Ayush Vasoya",
+    "due": "2026-11-10",
+    "status": "blocked",
+    "priority": "high"
+  },
+  {
+    "id": "t6",
+    "projectId": "p-cafe",
+    "phaseId": null,
+    "title": "Follow up extra-work payment",
+    "assignee": "Ar. Ayush Vasoya",
+    "due": "2026-11-08",
+    "status": "todo",
+    "priority": "medium"
+  }
+]

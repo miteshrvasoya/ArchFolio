@@ -1,0 +1,457 @@
+[
+  {
+    "id": "tpl-residential",
+    "name": "Residential — plans & 3D",
+    "description": "New house or bungalow: concept, 2D plans, 3D views and working drawings.",
+    "content": {
+      "parties": {
+        "architect": {
+          "firmName": ".PLN architects",
+          "architectName": "Ar. Ayush Vasoya",
+          "coaNumber": "CA/0000/00000 (sample)",
+          "address": "Studio address (set in Settings), Surat, Gujarat",
+          "phone": "+91 90000 00000",
+          "email": "studio@example.com",
+          "gstin": ""
+        },
+        "client": {
+          "name": "",
+          "address": "",
+          "phone": "",
+          "email": ""
+        }
+      },
+      "timeline": {
+        "overallDeadline": null,
+        "dependencyClause": "The timeline starts on receipt of the advance and of the inputs listed in this agreement (site survey, measurements, ownership documents, approved brief). Any delay by the client in feedback, approvals, inputs or payments extends every subsequent deadline day for day.",
+        "changeClause": "Changes to scope, brief or references after a phase is approved are change requests. Each change request, its effect on the timeline and any additional fee will be confirmed in writing (WhatsApp or email) before work on it begins, and the revised dates then replace the earlier ones."
+      },
+      "communication": {
+        "officialChannels": [
+          "WhatsApp",
+          "Email"
+        ],
+        "responseTime": "Messages are answered within 1–2 working days. Feedback on each submission is expected within 7 days; after that the submission is treated as approved and the timeline continues.",
+        "approvalDefinition": "A phase is approved when the client confirms in writing (a WhatsApp or email message such as “approved” or “go ahead”), or does not raise changes within 7 days of a submission."
+      },
+      "ownership": {
+        "clause": "All drawings, designs, models and documents remain the intellectual property of the architect. On payment of all fees due, the client receives the right to use them for the construction of this project at this site only. They may not be reused for another site or project without written permission.",
+        "portfolioPermission": true
+      },
+      "fileRelease": {
+        "clause": "Work-in-progress files are shared for viewing and discussion only (watermarked PDFs or images). Final printable and editable files for a phase are released after the payment milestone for that phase is received."
+      },
+      "termination": {
+        "clause": "Either party may end this agreement by written notice (WhatsApp or email). The client will pay for the work completed up to the date of notice, calculated stage-wise from the fee schedule (or, for a stage in progress, in proportion to the work done). The advance is non-refundable to the extent of work done."
+      },
+      "legal": {
+        "confidentiality": "Both parties will keep each other’s personal, financial and project information confidential and will not share it with third parties except as needed to deliver the project or as required by law.",
+        "disputeResolution": "Any disagreement will first be discussed in good faith between the parties. If not resolved within 30 days, it will be referred to mediation by a mutually agreed mediator. If mediation fails, the courts at Ahmedabad, Gujarat, India shall have exclusive jurisdiction.",
+        "governingLaw": "This agreement is governed by the laws of India."
+      },
+      "project": {
+        "title": "",
+        "site": "",
+        "type": "Residential",
+        "area": "",
+        "brief": "Design of a new residence as per the brief discussed."
+      },
+      "scope": {
+        "included": [
+          "Site study and concept options",
+          "Floor plans, elevations and sections (2D)",
+          "3D exterior views",
+          "Working drawings for construction",
+          "Two site visits at key stages"
+        ],
+        "exclusions": [
+          "Structural design",
+          "MEP (plumbing, electrical, HVAC) design",
+          "Municipal approvals and liaison",
+          "Regular site supervision",
+          "Interior design and furniture",
+          "Landscape design"
+        ]
+      },
+      "phases": [
+        {
+          "name": "Concept",
+          "deliverables": [
+            "Site analysis",
+            "2 concept options"
+          ],
+          "start": null,
+          "end": null,
+          "revisions": 2
+        },
+        {
+          "name": "2D plans",
+          "deliverables": [
+            "Floor plans",
+            "Elevations",
+            "Sections"
+          ],
+          "start": null,
+          "end": null,
+          "revisions": 2
+        },
+        {
+          "name": "3D / visuals",
+          "deliverables": [
+            "4 exterior 3D views"
+          ],
+          "start": null,
+          "end": null,
+          "revisions": 2
+        },
+        {
+          "name": "Working drawings",
+          "deliverables": [
+            "Construction drawing set"
+          ],
+          "start": null,
+          "end": null,
+          "revisions": 1
+        }
+      ],
+      "fees": {
+        "totalFee": 0,
+        "gstEnabled": false,
+        "gstRatePercent": 18,
+        "milestones": [
+          {
+            "id": "m1",
+            "label": "Advance",
+            "percent": 20,
+            "trigger": "On signing this agreement"
+          },
+          {
+            "id": "m2",
+            "label": "Plans approved",
+            "percent": 30,
+            "trigger": "On approval of 2D plans"
+          },
+          {
+            "id": "m3",
+            "label": "3D approved",
+            "percent": 25,
+            "trigger": "On approval of 3D views"
+          },
+          {
+            "id": "m4",
+            "label": "Working drawings",
+            "percent": 25,
+            "trigger": "Before release of working drawings"
+          }
+        ],
+        "paymentModes": [
+          "UPI",
+          "Bank transfer (NEFT/RTGS/IMPS)",
+          "Cheque"
+        ],
+        "latePaymentTerms": "Payments are due within 7 days of the trigger event. Work on the next phase begins only after the previous milestone is paid. Delayed payments extend the timeline day for day."
+      },
+      "revisions": {
+        "extraRevisionRate": 5000,
+        "clause": "Each phase includes the number of revisions listed. Further revisions, or new references after a phase is approved, are charged at the stated rate per revision or quoted separately before work begins."
+      }
+    }
+  },
+  {
+    "id": "tpl-interior",
+    "name": "Interior design",
+    "description": "Apartment or office interiors: layouts, 3D, joinery and execution drawings.",
+    "content": {
+      "parties": {
+        "architect": {
+          "firmName": ".PLN architects",
+          "architectName": "Ar. Ayush Vasoya",
+          "coaNumber": "CA/0000/00000 (sample)",
+          "address": "Studio address (set in Settings), Surat, Gujarat",
+          "phone": "+91 90000 00000",
+          "email": "studio@example.com",
+          "gstin": ""
+        },
+        "client": {
+          "name": "",
+          "address": "",
+          "phone": "",
+          "email": ""
+        }
+      },
+      "timeline": {
+        "overallDeadline": null,
+        "dependencyClause": "The timeline starts on receipt of the advance and of the inputs listed in this agreement (site survey, measurements, ownership documents, approved brief). Any delay by the client in feedback, approvals, inputs or payments extends every subsequent deadline day for day.",
+        "changeClause": "Changes to scope, brief or references after a phase is approved are change requests. Each change request, its effect on the timeline and any additional fee will be confirmed in writing (WhatsApp or email) before work on it begins, and the revised dates then replace the earlier ones."
+      },
+      "communication": {
+        "officialChannels": [
+          "WhatsApp",
+          "Email"
+        ],
+        "responseTime": "Messages are answered within 1–2 working days. Feedback on each submission is expected within 7 days; after that the submission is treated as approved and the timeline continues.",
+        "approvalDefinition": "A phase is approved when the client confirms in writing (a WhatsApp or email message such as “approved” or “go ahead”), or does not raise changes within 7 days of a submission."
+      },
+      "ownership": {
+        "clause": "All drawings, designs, models and documents remain the intellectual property of the architect. On payment of all fees due, the client receives the right to use them for the construction of this project at this site only. They may not be reused for another site or project without written permission.",
+        "portfolioPermission": true
+      },
+      "fileRelease": {
+        "clause": "Work-in-progress files are shared for viewing and discussion only (watermarked PDFs or images). Final printable and editable files for a phase are released after the payment milestone for that phase is received."
+      },
+      "termination": {
+        "clause": "Either party may end this agreement by written notice (WhatsApp or email). The client will pay for the work completed up to the date of notice, calculated stage-wise from the fee schedule (or, for a stage in progress, in proportion to the work done). The advance is non-refundable to the extent of work done."
+      },
+      "legal": {
+        "confidentiality": "Both parties will keep each other’s personal, financial and project information confidential and will not share it with third parties except as needed to deliver the project or as required by law.",
+        "disputeResolution": "Any disagreement will first be discussed in good faith between the parties. If not resolved within 30 days, it will be referred to mediation by a mutually agreed mediator. If mediation fails, the courts at Ahmedabad, Gujarat, India shall have exclusive jurisdiction.",
+        "governingLaw": "This agreement is governed by the laws of India."
+      },
+      "project": {
+        "title": "",
+        "site": "",
+        "type": "Interior",
+        "area": "",
+        "brief": "Interior design of the premises as per the brief discussed."
+      },
+      "scope": {
+        "included": [
+          "Measurement and furniture layout",
+          "Material and finish palette",
+          "3D views of key spaces",
+          "Joinery, ceiling, flooring and electrical layout drawings",
+          "Three site visits during execution"
+        ],
+        "exclusions": [
+          "Civil or structural changes",
+          "Procurement of furniture and materials",
+          "Contractor management",
+          "Loose furniture and décor selection beyond the palette"
+        ]
+      },
+      "phases": [
+        {
+          "name": "Layout",
+          "deliverables": [
+            "Furniture layout",
+            "Mood board"
+          ],
+          "start": null,
+          "end": null,
+          "revisions": 2
+        },
+        {
+          "name": "3D / visuals",
+          "deliverables": [
+            "3D views of living, kitchen and bedrooms"
+          ],
+          "start": null,
+          "end": null,
+          "revisions": 2
+        },
+        {
+          "name": "Working drawings",
+          "deliverables": [
+            "Joinery details",
+            "Ceiling and lighting plan",
+            "Electrical layout"
+          ],
+          "start": null,
+          "end": null,
+          "revisions": 1
+        },
+        {
+          "name": "Site support",
+          "deliverables": [
+            "Three site visits"
+          ],
+          "start": null,
+          "end": null,
+          "revisions": 0
+        }
+      ],
+      "fees": {
+        "totalFee": 0,
+        "gstEnabled": false,
+        "gstRatePercent": 18,
+        "milestones": [
+          {
+            "id": "m1",
+            "label": "Advance",
+            "percent": 25,
+            "trigger": "On signing this agreement"
+          },
+          {
+            "id": "m2",
+            "label": "3D approved",
+            "percent": 35,
+            "trigger": "On approval of 3D views"
+          },
+          {
+            "id": "m3",
+            "label": "Drawings",
+            "percent": 30,
+            "trigger": "Before release of working drawings"
+          },
+          {
+            "id": "m4",
+            "label": "Handover",
+            "percent": 10,
+            "trigger": "On completion of site visits"
+          }
+        ],
+        "paymentModes": [
+          "UPI",
+          "Bank transfer (NEFT/RTGS/IMPS)",
+          "Cheque"
+        ],
+        "latePaymentTerms": "Payments are due within 7 days of the trigger event. Work on the next phase begins only after the previous milestone is paid. Delayed payments extend the timeline day for day."
+      },
+      "revisions": {
+        "extraRevisionRate": 4000,
+        "clause": "Each phase includes the number of revisions listed. Further revisions, or new references after approval, are charged at the stated rate or quoted separately."
+      }
+    }
+  },
+  {
+    "id": "tpl-renovation",
+    "name": "Renovation",
+    "description": "Existing building: survey, redesign, and drawings for alterations.",
+    "content": {
+      "parties": {
+        "architect": {
+          "firmName": ".PLN architects",
+          "architectName": "Ar. Ayush Vasoya",
+          "coaNumber": "CA/0000/00000 (sample)",
+          "address": "Studio address (set in Settings), Surat, Gujarat",
+          "phone": "+91 90000 00000",
+          "email": "studio@example.com",
+          "gstin": ""
+        },
+        "client": {
+          "name": "",
+          "address": "",
+          "phone": "",
+          "email": ""
+        }
+      },
+      "timeline": {
+        "overallDeadline": null,
+        "dependencyClause": "The timeline starts on receipt of the advance and of the inputs listed in this agreement (site survey, measurements, ownership documents, approved brief). Any delay by the client in feedback, approvals, inputs or payments extends every subsequent deadline day for day.",
+        "changeClause": "Changes to scope, brief or references after a phase is approved are change requests. Each change request, its effect on the timeline and any additional fee will be confirmed in writing (WhatsApp or email) before work on it begins, and the revised dates then replace the earlier ones."
+      },
+      "communication": {
+        "officialChannels": [
+          "WhatsApp",
+          "Email"
+        ],
+        "responseTime": "Messages are answered within 1–2 working days. Feedback on each submission is expected within 7 days; after that the submission is treated as approved and the timeline continues.",
+        "approvalDefinition": "A phase is approved when the client confirms in writing (a WhatsApp or email message such as “approved” or “go ahead”), or does not raise changes within 7 days of a submission."
+      },
+      "ownership": {
+        "clause": "All drawings, designs, models and documents remain the intellectual property of the architect. On payment of all fees due, the client receives the right to use them for the construction of this project at this site only. They may not be reused for another site or project without written permission.",
+        "portfolioPermission": true
+      },
+      "fileRelease": {
+        "clause": "Work-in-progress files are shared for viewing and discussion only (watermarked PDFs or images). Final printable and editable files for a phase are released after the payment milestone for that phase is received."
+      },
+      "termination": {
+        "clause": "Either party may end this agreement by written notice (WhatsApp or email). The client will pay for the work completed up to the date of notice, calculated stage-wise from the fee schedule (or, for a stage in progress, in proportion to the work done). The advance is non-refundable to the extent of work done."
+      },
+      "legal": {
+        "confidentiality": "Both parties will keep each other’s personal, financial and project information confidential and will not share it with third parties except as needed to deliver the project or as required by law.",
+        "disputeResolution": "Any disagreement will first be discussed in good faith between the parties. If not resolved within 30 days, it will be referred to mediation by a mutually agreed mediator. If mediation fails, the courts at Ahmedabad, Gujarat, India shall have exclusive jurisdiction.",
+        "governingLaw": "This agreement is governed by the laws of India."
+      },
+      "project": {
+        "title": "",
+        "site": "",
+        "type": "Renovation",
+        "area": "",
+        "brief": "Renovation of the existing premises as per the brief discussed."
+      },
+      "scope": {
+        "included": [
+          "Measured survey of the existing building",
+          "Redesign options",
+          "Demolition and new-work drawings",
+          "Finish and fixture schedule",
+          "Two site visits"
+        ],
+        "exclusions": [
+          "Structural assessment or design",
+          "MEP design",
+          "Approvals",
+          "Site supervision"
+        ]
+      },
+      "phases": [
+        {
+          "name": "Survey & concept",
+          "deliverables": [
+            "Measured drawings",
+            "Redesign options"
+          ],
+          "start": null,
+          "end": null,
+          "revisions": 2
+        },
+        {
+          "name": "2D plans",
+          "deliverables": [
+            "Proposed plans",
+            "Demolition plan"
+          ],
+          "start": null,
+          "end": null,
+          "revisions": 2
+        },
+        {
+          "name": "Working drawings",
+          "deliverables": [
+            "New-work drawings",
+            "Finish schedule"
+          ],
+          "start": null,
+          "end": null,
+          "revisions": 1
+        }
+      ],
+      "fees": {
+        "totalFee": 0,
+        "gstEnabled": false,
+        "gstRatePercent": 18,
+        "milestones": [
+          {
+            "id": "m1",
+            "label": "Advance",
+            "percent": 30,
+            "trigger": "On signing this agreement"
+          },
+          {
+            "id": "m2",
+            "label": "Plans approved",
+            "percent": 40,
+            "trigger": "On approval of plans"
+          },
+          {
+            "id": "m3",
+            "label": "Drawings",
+            "percent": 30,
+            "trigger": "Before release of working drawings"
+          }
+        ],
+        "paymentModes": [
+          "UPI",
+          "Bank transfer (NEFT/RTGS/IMPS)",
+          "Cheque"
+        ],
+        "latePaymentTerms": "Payments are due within 7 days of the trigger event. Work on the next phase begins only after the previous milestone is paid. Delayed payments extend the timeline day for day."
+      },
+      "revisions": {
+        "extraRevisionRate": 4000,
+        "clause": "Each phase includes the number of revisions listed. Further revisions are charged at the stated rate or quoted separately."
+      }
+    }
+  }
+]

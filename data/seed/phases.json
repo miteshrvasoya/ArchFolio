@@ -1,0 +1,296 @@
+[
+  {
+    "description": "",
+    "deliverables": [
+      "Site analysis",
+      "2 concept options"
+    ],
+    "startDate": "2026-08-10",
+    "dueDate": "2026-08-30",
+    "originalDueDate": "2026-08-30",
+    "dueDateHistory": [],
+    "status": "delivered",
+    "revisionsAllowed": 2,
+    "revisionsUsed": 1,
+    "paymentMilestoneId": "m1",
+    "id": "ph-d1",
+    "projectId": "p-desai",
+    "name": "Concept",
+    "order": 0
+  },
+  {
+    "description": "",
+    "deliverables": [
+      "Floor plans",
+      "Elevations",
+      "Sections"
+    ],
+    "startDate": "2026-08-31",
+    "dueDate": "2026-10-04",
+    "originalDueDate": "2026-10-04",
+    "dueDateHistory": [],
+    "status": "approved",
+    "revisionsAllowed": 2,
+    "revisionsUsed": 2,
+    "paymentMilestoneId": "m2",
+    "id": "ph-d2",
+    "projectId": "p-desai",
+    "name": "2D plans",
+    "order": 1
+  },
+  {
+    "description": "Exterior views, revised for the terrace garden.",
+    "deliverables": [
+      "4 exterior 3D views",
+      "Terrace garden view"
+    ],
+    "startDate": "2026-10-05",
+    "dueDate": "2026-11-24",
+    "originalDueDate": "2026-11-10",
+    "dueDateHistory": [
+      {
+        "changedAt": "2026-10-29T18:30:00+05:30",
+        "from": "2026-11-10",
+        "to": "2026-11-24",
+        "reason": "Terrace garden and new façade references added (scope change)",
+        "discussionId": "d-desai-scope"
+      }
+    ],
+    "status": "revision",
+    "revisionsAllowed": 2,
+    "revisionsUsed": 2,
+    "paymentMilestoneId": "m3",
+    "id": "ph-d3",
+    "projectId": "p-desai",
+    "name": "3D / visuals",
+    "order": 2
+  },
+  {
+    "description": "",
+    "deliverables": [
+      "Construction drawing set"
+    ],
+    "startDate": "2026-11-25",
+    "dueDate": "2027-01-16",
+    "originalDueDate": "2027-01-02",
+    "dueDateHistory": [
+      {
+        "changedAt": "2026-10-29T18:30:00+05:30",
+        "from": "2027-01-02",
+        "to": "2027-01-16",
+        "reason": "Follows 3D / visuals (scope change)",
+        "discussionId": "d-desai-scope"
+      }
+    ],
+    "status": "not-started",
+    "revisionsAllowed": 1,
+    "revisionsUsed": 0,
+    "paymentMilestoneId": "m4",
+    "id": "ph-d4",
+    "projectId": "p-desai",
+    "name": "Working drawings",
+    "order": 3
+  },
+  {
+    "description": "",
+    "deliverables": [
+      "Site analysis",
+      "2 concept options"
+    ],
+    "startDate": null,
+    "dueDate": "2026-12-18",
+    "originalDueDate": "2026-12-18",
+    "dueDateHistory": [],
+    "status": "not-started",
+    "revisionsAllowed": 2,
+    "revisionsUsed": 0,
+    "paymentMilestoneId": null,
+    "id": "ph-p1",
+    "projectId": "p-patel",
+    "name": "Concept",
+    "order": 0
+  },
+  {
+    "description": "",
+    "deliverables": [
+      "Floor plans",
+      "Elevations"
+    ],
+    "startDate": null,
+    "dueDate": "2027-01-17",
+    "originalDueDate": "2027-01-17",
+    "dueDateHistory": [],
+    "status": "not-started",
+    "revisionsAllowed": 2,
+    "revisionsUsed": 0,
+    "paymentMilestoneId": null,
+    "id": "ph-p2",
+    "projectId": "p-patel",
+    "name": "2D plans",
+    "order": 1
+  },
+  {
+    "description": "",
+    "deliverables": [
+      "Exterior and pool views"
+    ],
+    "startDate": null,
+    "dueDate": "2027-02-11",
+    "originalDueDate": "2027-02-11",
+    "dueDateHistory": [],
+    "status": "not-started",
+    "revisionsAllowed": 2,
+    "revisionsUsed": 0,
+    "paymentMilestoneId": null,
+    "id": "ph-p3",
+    "projectId": "p-patel",
+    "name": "3D / visuals",
+    "order": 2
+  },
+  {
+    "description": "",
+    "deliverables": [
+      "Construction drawing set"
+    ],
+    "startDate": null,
+    "dueDate": "2027-03-18",
+    "originalDueDate": "2027-03-18",
+    "dueDateHistory": [],
+    "status": "not-started",
+    "revisionsAllowed": 1,
+    "revisionsUsed": 0,
+    "paymentMilestoneId": null,
+    "id": "ph-p4",
+    "projectId": "p-patel",
+    "name": "Working drawings",
+    "order": 3
+  },
+  {
+    "description": "",
+    "deliverables": [
+      "Furniture layout",
+      "Mood board"
+    ],
+    "startDate": "2026-09-19",
+    "dueDate": "2026-10-14",
+    "originalDueDate": "2026-10-04",
+    "dueDateHistory": [
+      {
+        "changedAt": "2026-10-01T11:00:00+05:30",
+        "from": "2026-10-04",
+        "to": "2026-10-14",
+        "reason": "Site measurements received late"
+      }
+    ],
+    "status": "approved",
+    "revisionsAllowed": 2,
+    "revisionsUsed": 3,
+    "paymentMilestoneId": null,
+    "id": "ph-j1",
+    "projectId": "p-joshi",
+    "name": "Layout",
+    "order": 0
+  },
+  {
+    "description": "",
+    "deliverables": [
+      "Living, kitchen and bedroom views"
+    ],
+    "startDate": "2026-10-15",
+    "dueDate": "2026-11-21",
+    "originalDueDate": "2026-10-31",
+    "dueDateHistory": [
+      {
+        "changedAt": "2026-11-03T20:10:00+05:30",
+        "from": "2026-10-31",
+        "to": "2026-11-21",
+        "reason": "Measurements and society NOC received 3 weeks late",
+        "discussionId": "d-joshi-dispute"
+      }
+    ],
+    "status": "in-review",
+    "revisionsAllowed": 2,
+    "revisionsUsed": 1,
+    "paymentMilestoneId": null,
+    "id": "ph-j2",
+    "projectId": "p-joshi",
+    "name": "3D / visuals",
+    "order": 1
+  },
+  {
+    "description": "",
+    "deliverables": [
+      "Joinery details",
+      "Ceiling plan",
+      "Electrical layout"
+    ],
+    "startDate": "2026-11-22",
+    "dueDate": "2026-12-04",
+    "originalDueDate": "2026-11-13",
+    "dueDateHistory": [
+      {
+        "changedAt": "2026-11-03T20:10:00+05:30",
+        "from": "2026-11-13",
+        "to": "2026-12-04",
+        "reason": "Follows 3D / visuals",
+        "discussionId": "d-joshi-dispute"
+      }
+    ],
+    "status": "not-started",
+    "revisionsAllowed": 1,
+    "revisionsUsed": 0,
+    "paymentMilestoneId": null,
+    "id": "ph-j3",
+    "projectId": "p-joshi",
+    "name": "Working drawings",
+    "order": 2
+  },
+  {
+    "description": "",
+    "deliverables": [],
+    "startDate": "2026-05-02",
+    "dueDate": "2026-05-22",
+    "originalDueDate": "2026-05-22",
+    "dueDateHistory": [],
+    "status": "delivered",
+    "revisionsAllowed": 2,
+    "revisionsUsed": 0,
+    "paymentMilestoneId": null,
+    "id": "ph-c1",
+    "projectId": "p-cafe",
+    "name": "Layout",
+    "order": 0
+  },
+  {
+    "description": "",
+    "deliverables": [],
+    "startDate": "2026-05-23",
+    "dueDate": "2026-06-21",
+    "originalDueDate": "2026-06-21",
+    "dueDateHistory": [],
+    "status": "delivered",
+    "revisionsAllowed": 2,
+    "revisionsUsed": 0,
+    "paymentMilestoneId": null,
+    "id": "ph-c2",
+    "projectId": "p-cafe",
+    "name": "3D / visuals",
+    "order": 1
+  },
+  {
+    "description": "",
+    "deliverables": [],
+    "startDate": "2026-06-22",
+    "dueDate": "2026-08-06",
+    "originalDueDate": "2026-07-31",
+    "dueDateHistory": [],
+    "status": "delivered",
+    "revisionsAllowed": 1,
+    "revisionsUsed": 1,
+    "paymentMilestoneId": null,
+    "id": "ph-c3",
+    "projectId": "p-cafe",
+    "name": "Working drawings",
+    "order": 2
+  }
+]

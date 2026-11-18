@@ -1,0 +1,180 @@
+[
+  {
+    "id": "pay-d1",
+    "projectId": "p-desai",
+    "agreementId": "a-desai",
+    "milestoneId": "m1",
+    "label": "Advance (20%)",
+    "type": "advance",
+    "amount": 100000,
+    "dueDate": "2026-08-08",
+    "invoicedAt": "2026-08-07",
+    "receipts": [
+      {
+        "id": "rc1",
+        "date": "2026-08-09",
+        "amount": 100000,
+        "mode": "upi",
+        "reference": "UPI 000111",
+        "notes": ""
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "id": "pay-d2",
+    "projectId": "p-desai",
+    "agreementId": "a-desai",
+    "milestoneId": "m2",
+    "label": "Plans approved (30%)",
+    "type": "milestone",
+    "amount": 150000,
+    "dueDate": "2026-11-26",
+    "invoicedAt": "2026-11-06",
+    "receipts": [
+      {
+        "id": "rc2",
+        "date": "2026-11-12",
+        "amount": 75000,
+        "mode": "bank",
+        "reference": "NEFT SMPL0002",
+        "notes": ""
+      }
+    ],
+    "notes": "Client paid half; balance promised next week."
+  },
+  {
+    "id": "pay-d3",
+    "projectId": "p-desai",
+    "agreementId": "a-desai",
+    "milestoneId": "m3",
+    "label": "3D approved (25%)",
+    "type": "milestone",
+    "amount": 125000,
+    "dueDate": "2026-12-01",
+    "invoicedAt": null,
+    "receipts": [],
+    "notes": ""
+  },
+  {
+    "id": "pay-d4",
+    "projectId": "p-desai",
+    "agreementId": "a-desai",
+    "milestoneId": "m4",
+    "label": "Working drawings (25%)",
+    "type": "final",
+    "amount": 125000,
+    "dueDate": "2027-01-16",
+    "invoicedAt": null,
+    "receipts": [],
+    "notes": ""
+  },
+  {
+    "id": "pay-p1",
+    "projectId": "p-patel",
+    "agreementId": "a-patel",
+    "milestoneId": "m1",
+    "label": "Advance (20%)",
+    "type": "advance",
+    "amount": 90000,
+    "dueDate": "2026-11-23",
+    "invoicedAt": "2026-11-17",
+    "receipts": [],
+    "notes": "Requested along with the agreement draft."
+  },
+  {
+    "id": "pay-j1",
+    "projectId": "p-joshi",
+    "agreementId": null,
+    "milestoneId": null,
+    "label": "Advance (verbal)",
+    "type": "advance",
+    "amount": 60000,
+    "dueDate": "2026-09-18",
+    "invoicedAt": null,
+    "receipts": [
+      {
+        "id": "rc3",
+        "date": "2026-09-18",
+        "amount": 60000,
+        "mode": "upi",
+        "reference": "UPI 000333",
+        "notes": ""
+      }
+    ],
+    "notes": "Paid on verbal agreement."
+  },
+  {
+    "id": "pay-j2",
+    "projectId": "p-joshi",
+    "agreementId": null,
+    "milestoneId": null,
+    "label": "Layout & 3D",
+    "type": "milestone",
+    "amount": 80000,
+    "dueDate": "2026-11-06",
+    "invoicedAt": "2026-10-29",
+    "receipts": [],
+    "notes": "Overdue; client cites the timeline dispute."
+  },
+  {
+    "id": "pay-c1",
+    "projectId": "p-cafe",
+    "agreementId": null,
+    "milestoneId": null,
+    "label": "Design fee",
+    "type": "milestone",
+    "amount": 240000,
+    "dueDate": "2026-06-21",
+    "invoicedAt": "2026-05-02",
+    "receipts": [
+      {
+        "id": "rc4",
+        "date": "2026-05-03",
+        "amount": 60000,
+        "mode": "cheque",
+        "reference": "CHQ 000444",
+        "notes": ""
+      },
+      {
+        "id": "rc5",
+        "date": "2026-06-21",
+        "amount": 100000,
+        "mode": "bank",
+        "reference": "NEFT SMPL0005",
+        "notes": ""
+      },
+      {
+        "id": "rc6",
+        "date": "2026-08-06",
+        "amount": 80000,
+        "mode": "bank",
+        "reference": "NEFT SMPL0006",
+        "notes": ""
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "id": "pay-c2",
+    "projectId": "p-cafe",
+    "agreementId": null,
+    "milestoneId": null,
+    "label": "Back counter redesign",
+    "type": "extra-work",
+    "amount": 18000,
+    "dueDate": "2026-10-24",
+    "invoicedAt": "2026-07-11",
+    "receipts": [
+      {
+        "id": "rc7",
+        "date": "2026-10-09",
+        "amount": 8000,
+        "mode": "cash",
+        "reference": "Cash",
+        "notes": ""
+      }
+    ],
+    "notes": "Balance pending."
+  }
+]

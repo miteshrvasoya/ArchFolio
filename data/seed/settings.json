@@ -1,0 +1,37 @@
+{
+  "firm": {
+    "name": ".PLN architects",
+    "architectName": "Ar. Ayush Vasoya",
+    "address": "Studio address (set in Settings)",
+    "city": "Surat, Gujarat",
+    "phone": "+91 90000 00000",
+    "email": "studio@example.com",
+    "website": "",
+    "coaNumber": "CA/0000/00000 (sample)",
+    "gstin": "",
+    "logoUrl": ""
+  },
+  "bank": {
+    "accountName": ".PLN architects (sample)",
+    "bankName": "Sample Bank",
+    "accountNumber": "000000000000",
+    "ifsc": "SMPL0000000",
+    "upiId": "pln@example"
+  },
+  "defaults": {
+    "paymentModes": [
+      "UPI",
+      "Bank transfer (NEFT/RTGS/IMPS)",
+      "Cheque"
+    ],
+    "latePaymentTerms": "Payments are due within 7 days of the trigger event. Work on the next phase begins only after the previous milestone is paid. Delayed payments extend the timeline day for day.",
+    "dependencyClause": "The timeline starts on receipt of the advance and of the inputs listed in this agreement (site survey, measurements, ownership documents, approved brief). Any delay by the client in feedback, approvals, inputs or payments extends every subsequent deadline day for day.",
+    "changeClause": "Changes to scope, brief or references after a phase is approved are change requests. Each change request, its effect on the timeline and any additional fee will be confirmed in writing (WhatsApp or email) before work on it begins, and the revised dates then replace the earlier ones.",
+    "ownershipClause": "All drawings, designs, models and documents remain the intellectual property of the architect. On payment of all fees due, the client receives the right to use them for the construction of this project at this site only. They may not be reused for another site or project without written permission.",
+    "fileReleaseClause": "Work-in-progress files are shared for viewing and discussion only (watermarked PDFs or images). Final printable and editable files for a phase are released after the payment milestone for that phase is received.",
+    "terminationClause": "Either party may end this agreement by written notice (WhatsApp or email). The client will pay for the work completed up to the date of notice, calculated stage-wise from the fee schedule (or, for a stage in progress, in proportion to the work done). The advance is non-refundable to the extent of work done.",
+    "confidentiality": "Both parties will keep each other’s personal, financial and project information confidential and will not share it with third parties except as needed to deliver the project or as required by law.",
+    "disputeResolution": "Any disagreement will first be discussed in good faith between the parties. If not resolved within 30 days, it will be referred to mediation by a mutually agreed mediator. If mediation fails, the courts at Ahmedabad, Gujarat, India shall have exclusive jurisdiction.",
+    "governingLaw": "This agreement is governed by the laws of India."
+  }
+}

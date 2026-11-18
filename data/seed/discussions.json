@@ -1,0 +1,258 @@
+[
+  {
+    "decisions": [
+      "Go ahead with concept option exploration",
+      "East-facing entrance preferred"
+    ],
+    "actionItems": [
+      {
+        "id": "ai1",
+        "text": "Share site survey PDF",
+        "owner": "Client",
+        "due": "2026-08-14",
+        "done": true
+      },
+      {
+        "id": "ai2",
+        "text": "Send concept options",
+        "owner": "Ar. Ayush Vasoya",
+        "due": "2026-08-30",
+        "done": true
+      }
+    ],
+    "attachments": [
+      {
+        "name": "Site photos",
+        "type": "photo",
+        "link": "",
+        "note": "24 photos on studio drive"
+      }
+    ],
+    "scopeChange": false,
+    "impact": null,
+    "tags": [],
+    "id": "d-desai-kickoff",
+    "projectId": "p-desai",
+    "at": "2026-08-09T17:00:00+05:30",
+    "channel": "meeting",
+    "summary": "Kick-off at site. Walked the plot, confirmed brief: 4 BHK, double-height living, home office, two-car parking. Budget band agreed."
+  },
+  {
+    "decisions": [
+      "Terrace garden added to scope",
+      "Façade material changes to stone cladding",
+      "Extra fee of ₹50,000 accepted on chat",
+      "3D and working drawing deadlines move by 14 days"
+    ],
+    "actionItems": [
+      {
+        "id": "ai3",
+        "text": "Issue revised agreement (v2)",
+        "owner": "Ar. Ayush Vasoya",
+        "due": "2026-11-01",
+        "done": true
+      },
+      {
+        "id": "ai4",
+        "text": "Revise terrace and façade 3D",
+        "owner": "Ar. Ayush Vasoya",
+        "due": "2026-11-24",
+        "done": false
+      }
+    ],
+    "attachments": [
+      {
+        "name": "WhatsApp export",
+        "type": "whatsapp-export",
+        "link": "",
+        "note": "Chat exported and saved to project folder"
+      },
+      {
+        "name": "Façade references",
+        "type": "link",
+        "link": "https://example.com/references",
+        "note": "6 reference images"
+      }
+    ],
+    "scopeChange": true,
+    "impact": {
+      "days": 14,
+      "costInr": 50000,
+      "notes": "Terrace garden + façade rework after plan approval"
+    },
+    "tags": [
+      "scope-change"
+    ],
+    "id": "d-desai-scope",
+    "projectId": "p-desai",
+    "at": "2026-10-29T18:30:00+05:30",
+    "channel": "whatsapp",
+    "summary": "After the 3D first look, client asked to add a terrace garden with a pergola and shared new façade references (stone cladding instead of plaster). 2D plans were already approved."
+  },
+  {
+    "decisions": [
+      "This is the last included revision for 3D"
+    ],
+    "actionItems": [
+      {
+        "id": "ai5",
+        "text": "Send revised 3D views",
+        "owner": "Ar. Ayush Vasoya",
+        "due": "2026-11-22",
+        "done": false
+      },
+      {
+        "id": "ai6",
+        "text": "Confirm stone sample",
+        "owner": "Client",
+        "due": "2026-11-20",
+        "done": false
+      }
+    ],
+    "attachments": [
+      {
+        "name": "Call recording",
+        "type": "call-recording",
+        "link": "",
+        "note": "Saved on phone"
+      }
+    ],
+    "scopeChange": false,
+    "impact": null,
+    "tags": [],
+    "id": "d-desai-call",
+    "projectId": "p-desai",
+    "at": "2026-11-15T12:15:00+05:30",
+    "channel": "call",
+    "summary": "Call with Priya about 3D revision: wants warmer stone tone and larger terrace planters. Within included revisions (2 of 2 now used)."
+  },
+  {
+    "decisions": [
+      "Draft agreement to be sent before any drawings"
+    ],
+    "actionItems": [
+      {
+        "id": "ai7",
+        "text": "Send agreement draft",
+        "owner": "Ar. Ayush Vasoya",
+        "due": "2026-11-20",
+        "done": false
+      },
+      {
+        "id": "ai8",
+        "text": "Share plot survey",
+        "owner": "Client",
+        "due": "2026-11-23",
+        "done": false
+      }
+    ],
+    "attachments": [],
+    "scopeChange": false,
+    "impact": null,
+    "tags": [],
+    "id": "d-patel-brief",
+    "projectId": "p-patel",
+    "at": "2026-10-25T16:00:00+05:30",
+    "channel": "meeting",
+    "summary": "First meeting. Weekend villa with pool, 3 bedrooms, open kitchen facing the garden. Wants the retreat vibe from the Instagram post."
+  },
+  {
+    "decisions": [
+      "Work started on verbal go-ahead",
+      "Fee ₹2,40,000 (verbal)"
+    ],
+    "actionItems": [
+      {
+        "id": "ai9",
+        "text": "Send written agreement",
+        "owner": "Ar. Ayush Vasoya",
+        "due": "2026-09-24",
+        "done": false
+      },
+      {
+        "id": "ai10",
+        "text": "Share site measurements",
+        "owner": "Client",
+        "due": "2026-09-24",
+        "done": true
+      }
+    ],
+    "attachments": [],
+    "scopeChange": false,
+    "impact": null,
+    "tags": [],
+    "id": "d-joshi-start",
+    "projectId": "p-joshi",
+    "at": "2026-09-17T19:00:00+05:30",
+    "channel": "whatsapp",
+    "summary": "Client said “please start, we will sign the paperwork later”. Agreed fee ₹2,40,000 verbally; advance paid by UPI. Measurements to be shared by client’s contractor."
+  },
+  {
+    "decisions": [
+      "Timeline extended by 21 days (architect’s position)",
+      "Send a written summary on WhatsApp the same day"
+    ],
+    "actionItems": [
+      {
+        "id": "ai11",
+        "text": "Send written timeline summary on WhatsApp",
+        "owner": "Ar. Ayush Vasoya",
+        "due": "2026-11-03",
+        "done": true
+      },
+      {
+        "id": "ai12",
+        "text": "Get the agreement signed before releasing drawings",
+        "owner": "Ar. Ayush Vasoya",
+        "due": "2026-11-10",
+        "done": false
+      }
+    ],
+    "attachments": [
+      {
+        "name": "Measurement email (date proof)",
+        "type": "document",
+        "link": "",
+        "note": "Email with measurements dated 3 weeks after request"
+      }
+    ],
+    "scopeChange": false,
+    "impact": {
+      "days": 21,
+      "costInr": 0,
+      "notes": "Client-side delay in inputs; disputed by client"
+    },
+    "tags": [
+      "disputed",
+      "timeline"
+    ],
+    "id": "d-joshi-dispute",
+    "projectId": "p-joshi",
+    "at": "2026-11-03T20:10:00+05:30",
+    "channel": "call",
+    "summary": "Client says the drawings were promised “before Diwali” and is unhappy about the delay. On record: measurements arrived 3 weeks late and the society NOC was pending; the deadline moves by the same 21 days under the day-for-day rule. Client disagrees that the delay is theirs."
+  },
+  {
+    "decisions": [
+      "Back counter redesign as extra work (₹18,000)"
+    ],
+    "actionItems": [
+      {
+        "id": "ai13",
+        "text": "Send extra-work invoice",
+        "owner": "Ar. Ayush Vasoya",
+        "due": "2026-07-11",
+        "done": true
+      }
+    ],
+    "attachments": [],
+    "scopeChange": false,
+    "impact": null,
+    "tags": [],
+    "id": "d-cafe-visit",
+    "projectId": "p-cafe",
+    "at": "2026-07-01T10:30:00+05:30",
+    "channel": "site-visit",
+    "summary": "Site visit during execution. Contractor asked for a new back-counter design; client agreed to pay for it as extra work."
+  }
+]

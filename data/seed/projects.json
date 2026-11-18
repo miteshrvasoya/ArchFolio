@@ -1,0 +1,141 @@
+[
+  {
+    "plotAreaSqft": 2400,
+    "builtUpAreaSqft": 3800,
+    "budgetMin": 9000000,
+    "budgetMax": 12000000,
+    "startDate": "2026-08-10",
+    "originalDeadline": "2027-01-02",
+    "currentDeadline": "2027-01-16",
+    "deadlineHistory": [
+      {
+        "changedAt": "2026-10-29T18:30:00+05:30",
+        "from": "2027-01-02",
+        "to": "2027-01-16",
+        "reason": "Terrace garden and new façade references added (scope change)",
+        "discussionId": "d-desai-scope"
+      }
+    ],
+    "teamMembers": [
+      "Ar. Ayush Vasoya",
+      "Partner architect (sample)"
+    ],
+    "tags": [
+      "bungalow"
+    ],
+    "id": "p-desai",
+    "clientId": "c-desai",
+    "title": "Desai Residence, Vesu",
+    "type": "residential",
+    "siteLocation": "Vesu, Surat",
+    "status": "in-progress",
+    "createdAt": "2026-07-31T11:00:00+05:30"
+  },
+  {
+    "plotAreaSqft": 6000,
+    "builtUpAreaSqft": 3200,
+    "budgetMin": 7500000,
+    "budgetMax": 9000000,
+    "startDate": null,
+    "originalDeadline": "2027-03-18",
+    "currentDeadline": "2027-03-18",
+    "deadlineHistory": [],
+    "teamMembers": [
+      "Ar. Ayush Vasoya"
+    ],
+    "tags": [
+      "weekend home"
+    ],
+    "id": "p-patel",
+    "clientId": "c-patel",
+    "title": "Patel Weekend Villa, Dumas",
+    "type": "residential",
+    "siteLocation": "Dumas, Surat",
+    "status": "agreement-pending",
+    "createdAt": "2026-10-24T11:00:00+05:30"
+  },
+  {
+    "plotAreaSqft": null,
+    "builtUpAreaSqft": 1650,
+    "budgetMin": 1800000,
+    "budgetMax": 2500000,
+    "startDate": "2026-09-19",
+    "originalDeadline": "2026-11-13",
+    "currentDeadline": "2026-12-04",
+    "deadlineHistory": [
+      {
+        "changedAt": "2026-11-03T20:10:00+05:30",
+        "from": "2026-11-13",
+        "to": "2026-12-04",
+        "reason": "Measurements and society NOC received 3 weeks late; deadline extended day for day",
+        "discussionId": "d-joshi-dispute"
+      }
+    ],
+    "teamMembers": [
+      "Ar. Ayush Vasoya"
+    ],
+    "tags": [
+      "apartment"
+    ],
+    "id": "p-joshi",
+    "clientId": "c-joshi",
+    "title": "Joshi Apartment Interior",
+    "type": "interior",
+    "siteLocation": "Adajan, Surat",
+    "status": "in-progress",
+    "createdAt": "2026-09-09T11:00:00+05:30"
+  },
+  {
+    "plotAreaSqft": null,
+    "builtUpAreaSqft": 900,
+    "budgetMin": 1500000,
+    "budgetMax": 2000000,
+    "startDate": "2026-05-02",
+    "originalDeadline": "2026-07-31",
+    "currentDeadline": "2026-08-06",
+    "deadlineHistory": [
+      {
+        "changedAt": "2026-07-11T11:00:00+05:30",
+        "from": "2026-07-31",
+        "to": "2026-08-06",
+        "reason": "Counter redesign requested by client"
+      }
+    ],
+    "teamMembers": [
+      "Ar. Ayush Vasoya"
+    ],
+    "tags": [
+      "café"
+    ],
+    "id": "p-cafe",
+    "clientId": "c-rao",
+    "title": "Sample Café Fit-out, Adajan",
+    "type": "commercial",
+    "siteLocation": "Adajan, Surat",
+    "status": "delivered",
+    "createdAt": "2026-04-27T11:00:00+05:30"
+  },
+  {
+    "plotAreaSqft": null,
+    "builtUpAreaSqft": 1200,
+    "budgetMin": null,
+    "budgetMax": null,
+    "startDate": null,
+    "originalDeadline": null,
+    "currentDeadline": null,
+    "deadlineHistory": [],
+    "teamMembers": [
+      "Ar. Ayush Vasoya"
+    ],
+    "tags": [
+      "renovation"
+    ],
+    "id": "p-desai-reno",
+    "clientId": "c-desai",
+    "title": "Desai Parents’ Flat Renovation",
+    "type": "renovation",
+    "siteLocation": "Athwa, Surat",
+    "status": "inquiry",
+    "createdAt": "2026-11-12T11:00:00+05:30"
+  }
+]

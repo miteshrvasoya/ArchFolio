@@ -1,0 +1,63 @@
+[
+  {
+    "id": "c-desai",
+    "name": "Nikhil & Priya Desai",
+    "phone": "+91 90000 11111",
+    "email": "desai.family@example.com",
+    "address": "12 Sample Society, Vesu",
+    "city": "Surat",
+    "source": "referral",
+    "notes": "Sample data. Referred by a past client. Prefer WhatsApp; Priya decides on interiors.",
+    "tags": [
+      "repeat",
+      "priority"
+    ],
+    "createdAt": "2026-07-21T11:00:00+05:30",
+    "status": "active"
+  },
+  {
+    "id": "c-patel",
+    "name": "Harsh Patel",
+    "phone": "+91 90000 22222",
+    "email": "harsh.p@example.com",
+    "address": "Plot 7, Sample Farms, Dumas",
+    "city": "Surat",
+    "source": "instagram",
+    "notes": "Sample data. Found us through the weekend retreat post.",
+    "tags": [
+      "weekend home"
+    ],
+    "createdAt": "2026-10-19T11:00:00+05:30",
+    "status": "lead"
+  },
+  {
+    "id": "c-joshi",
+    "name": "Meera Joshi",
+    "phone": "+91 90000 33333",
+    "email": "meera.j@example.com",
+    "address": "B-402, Sample Heights, Adajan",
+    "city": "Surat",
+    "source": "friend",
+    "notes": "Sample data. Started on a verbal go-ahead; agreement still not signed.",
+    "tags": [
+      "interior"
+    ],
+    "createdAt": "2026-09-04T11:00:00+05:30",
+    "status": "active"
+  },
+  {
+    "id": "c-rao",
+    "name": "Anil Rao (Sample Café)",
+    "phone": "+91 90000 44444",
+    "email": "cafe@example.com",
+    "address": "Shop 3, Sample Arcade, Adajan",
+    "city": "Surat",
+    "source": "website",
+    "notes": "Sample data. Café fit-out delivered; extra work invoice pending.",
+    "tags": [
+      "commercial"
+    ],
+    "createdAt": "2026-04-22T11:00:00+05:30",
+    "status": "past"
+  }
+]

@@ -1,0 +1,524 @@
+[
+  {
+    "id": "a-desai",
+    "projectId": "p-desai",
+    "title": "Architectural services — Desai Residence",
+    "templateId": "tpl-residential",
+    "createdAt": "2026-08-06T11:00:00+05:30",
+    "versions": [
+      {
+        "id": "av-desai-1",
+        "version": 1,
+        "token": "smpDesaiV1x9QkT4wLmZr7pA",
+        "status": "superseded",
+        "createdAt": "2026-08-06T11:00:00+05:30",
+        "updatedAt": "2026-11-01T11:00:00+05:30",
+        "sentAt": "2026-08-07T11:00:00+05:30",
+        "viewedAt": "2026-08-07T21:00:00+05:30",
+        "acceptedAt": "2026-08-08T09:40:00+05:30",
+        "acceptedByName": "Nikhil Desai",
+        "acceptanceHash": "f53879de055aa3e7c776a1bfcb7e8d02a629ba8e889b1f9c8ad06e5ac3770abc",
+        "changeNote": "Initial agreement",
+        "content": {
+          "parties": {
+            "architect": {
+              "firmName": ".PLN architects",
+              "architectName": "Ar. Ayush Vasoya",
+              "coaNumber": "CA/0000/00000 (sample)",
+              "address": "Studio address (set in Settings), Surat, Gujarat",
+              "phone": "+91 90000 00000",
+              "email": "studio@example.com",
+              "gstin": ""
+            },
+            "client": {
+              "name": "Nikhil & Priya Desai",
+              "address": "12 Sample Society, Vesu, Surat",
+              "phone": "+91 90000 11111",
+              "email": "desai.family@example.com"
+            }
+          },
+          "timeline": {
+            "overallDeadline": "2027-01-02",
+            "dependencyClause": "The timeline starts on receipt of the advance and of the inputs listed in this agreement (site survey, measurements, ownership documents, approved brief). Any delay by the client in feedback, approvals, inputs or payments extends every subsequent deadline day for day.",
+            "changeClause": "Changes to scope, brief or references after a phase is approved are change requests. Each change request, its effect on the timeline and any additional fee will be confirmed in writing (WhatsApp or email) before work on it begins, and the revised dates then replace the earlier ones."
+          },
+          "communication": {
+            "officialChannels": [
+              "WhatsApp",
+              "Email"
+            ],
+            "responseTime": "Messages are answered within 1–2 working days. Feedback on each submission is expected within 7 days; after that the submission is treated as approved and the timeline continues.",
+            "approvalDefinition": "A phase is approved when the client confirms in writing (a WhatsApp or email message such as “approved” or “go ahead”), or does not raise changes within 7 days of a submission."
+          },
+          "ownership": {
+            "clause": "All drawings, designs, models and documents remain the intellectual property of the architect. On payment of all fees due, the client receives the right to use them for the construction of this project at this site only. They may not be reused for another site or project without written permission.",
+            "portfolioPermission": true
+          },
+          "fileRelease": {
+            "clause": "Work-in-progress files are shared for viewing and discussion only (watermarked PDFs or images). Final printable and editable files for a phase are released after the payment milestone for that phase is received."
+          },
+          "termination": {
+            "clause": "Either party may end this agreement by written notice (WhatsApp or email). The client will pay for the work completed up to the date of notice, calculated stage-wise from the fee schedule (or, for a stage in progress, in proportion to the work done). The advance is non-refundable to the extent of work done."
+          },
+          "legal": {
+            "confidentiality": "Both parties will keep each other’s personal, financial and project information confidential and will not share it with third parties except as needed to deliver the project or as required by law.",
+            "disputeResolution": "Any disagreement will first be discussed in good faith between the parties. If not resolved within 30 days, it will be referred to mediation by a mutually agreed mediator. If mediation fails, the courts at Ahmedabad, Gujarat, India shall have exclusive jurisdiction.",
+            "governingLaw": "This agreement is governed by the laws of India."
+          },
+          "project": {
+            "title": "Desai Residence, Vesu",
+            "site": "Vesu, Surat",
+            "type": "Residential",
+            "area": "Plot 2,400 sq ft · built-up 3,800 sq ft",
+            "brief": "4 BHK residence with double-height living, home office and two-car parking."
+          },
+          "scope": {
+            "included": [
+              "Site study and concept options",
+              "Floor plans, elevations and sections (2D)",
+              "3D exterior views",
+              "Working drawings for construction",
+              "Two site visits at key stages"
+            ],
+            "exclusions": [
+              "Structural design",
+              "MEP (plumbing, electrical, HVAC) design",
+              "Municipal approvals and liaison",
+              "Regular site supervision",
+              "Interior design and furniture",
+              "Landscape design"
+            ]
+          },
+          "phases": [
+            {
+              "name": "Concept",
+              "deliverables": [
+                "Site analysis",
+                "2 concept options"
+              ],
+              "start": "2026-08-10",
+              "end": "2026-08-30",
+              "revisions": 2
+            },
+            {
+              "name": "2D plans",
+              "deliverables": [
+                "Floor plans",
+                "Elevations",
+                "Sections"
+              ],
+              "start": "2026-08-31",
+              "end": "2026-10-04",
+              "revisions": 2
+            },
+            {
+              "name": "3D / visuals",
+              "deliverables": [
+                "4 exterior 3D views"
+              ],
+              "start": "2026-10-05",
+              "end": "2026-11-10",
+              "revisions": 2
+            },
+            {
+              "name": "Working drawings",
+              "deliverables": [
+                "Construction drawing set"
+              ],
+              "start": "2026-11-11",
+              "end": "2027-01-02",
+              "revisions": 1
+            }
+          ],
+          "fees": {
+            "totalFee": 450000,
+            "gstEnabled": false,
+            "gstRatePercent": 18,
+            "milestones": [
+              {
+                "id": "m1",
+                "label": "Advance",
+                "percent": 20,
+                "trigger": "On signing this agreement"
+              },
+              {
+                "id": "m2",
+                "label": "Plans approved",
+                "percent": 30,
+                "trigger": "On approval of 2D plans"
+              },
+              {
+                "id": "m3",
+                "label": "3D approved",
+                "percent": 25,
+                "trigger": "On approval of 3D views"
+              },
+              {
+                "id": "m4",
+                "label": "Working drawings",
+                "percent": 25,
+                "trigger": "Before release of working drawings"
+              }
+            ],
+            "paymentModes": [
+              "UPI",
+              "Bank transfer (NEFT/RTGS/IMPS)",
+              "Cheque"
+            ],
+            "latePaymentTerms": "Payments are due within 7 days of the trigger event. Work on the next phase begins only after the previous milestone is paid. Delayed payments extend the timeline day for day."
+          },
+          "revisions": {
+            "extraRevisionRate": 5000,
+            "clause": "Each phase includes the number of revisions listed. Further revisions, or new references after a phase is approved, are charged at the stated rate per revision or quoted separately before work begins."
+          }
+        }
+      },
+      {
+        "id": "av-desai-2",
+        "version": 2,
+        "token": "smpDesaiV2bH3nW8sYcE5uKq",
+        "status": "accepted",
+        "createdAt": "2026-10-31T11:00:00+05:30",
+        "updatedAt": "2026-11-02T10:05:00+05:30",
+        "sentAt": "2026-11-01T11:00:00+05:30",
+        "viewedAt": "2026-11-01T13:20:00+05:30",
+        "acceptedAt": "2026-11-02T10:05:00+05:30",
+        "acceptedByName": "Nikhil Desai",
+        "acceptanceHash": "6caef005c55a91b7ccb32a63db9b7470dd9ce07284b0e188a01d6e819d01432a",
+        "changeNote": "Scope change: terrace garden and stone façade (+₹50,000, +14 days)",
+        "content": {
+          "parties": {
+            "architect": {
+              "firmName": ".PLN architects",
+              "architectName": "Ar. Ayush Vasoya",
+              "coaNumber": "CA/0000/00000 (sample)",
+              "address": "Studio address (set in Settings), Surat, Gujarat",
+              "phone": "+91 90000 00000",
+              "email": "studio@example.com",
+              "gstin": ""
+            },
+            "client": {
+              "name": "Nikhil & Priya Desai",
+              "address": "12 Sample Society, Vesu, Surat",
+              "phone": "+91 90000 11111",
+              "email": "desai.family@example.com"
+            }
+          },
+          "timeline": {
+            "overallDeadline": "2027-01-16",
+            "dependencyClause": "The timeline starts on receipt of the advance and of the inputs listed in this agreement (site survey, measurements, ownership documents, approved brief). Any delay by the client in feedback, approvals, inputs or payments extends every subsequent deadline day for day.",
+            "changeClause": "Changes to scope, brief or references after a phase is approved are change requests. Each change request, its effect on the timeline and any additional fee will be confirmed in writing (WhatsApp or email) before work on it begins, and the revised dates then replace the earlier ones."
+          },
+          "communication": {
+            "officialChannels": [
+              "WhatsApp",
+              "Email"
+            ],
+            "responseTime": "Messages are answered within 1–2 working days. Feedback on each submission is expected within 7 days; after that the submission is treated as approved and the timeline continues.",
+            "approvalDefinition": "A phase is approved when the client confirms in writing (a WhatsApp or email message such as “approved” or “go ahead”), or does not raise changes within 7 days of a submission."
+          },
+          "ownership": {
+            "clause": "All drawings, designs, models and documents remain the intellectual property of the architect. On payment of all fees due, the client receives the right to use them for the construction of this project at this site only. They may not be reused for another site or project without written permission.",
+            "portfolioPermission": true
+          },
+          "fileRelease": {
+            "clause": "Work-in-progress files are shared for viewing and discussion only (watermarked PDFs or images). Final printable and editable files for a phase are released after the payment milestone for that phase is received."
+          },
+          "termination": {
+            "clause": "Either party may end this agreement by written notice (WhatsApp or email). The client will pay for the work completed up to the date of notice, calculated stage-wise from the fee schedule (or, for a stage in progress, in proportion to the work done). The advance is non-refundable to the extent of work done."
+          },
+          "legal": {
+            "confidentiality": "Both parties will keep each other’s personal, financial and project information confidential and will not share it with third parties except as needed to deliver the project or as required by law.",
+            "disputeResolution": "Any disagreement will first be discussed in good faith between the parties. If not resolved within 30 days, it will be referred to mediation by a mutually agreed mediator. If mediation fails, the courts at Ahmedabad, Gujarat, India shall have exclusive jurisdiction.",
+            "governingLaw": "This agreement is governed by the laws of India."
+          },
+          "project": {
+            "title": "Desai Residence, Vesu",
+            "site": "Vesu, Surat",
+            "type": "Residential",
+            "area": "Plot 2,400 sq ft · built-up 3,800 sq ft",
+            "brief": "4 BHK residence with double-height living, home office and two-car parking. Revised: terrace garden with pergola, and stone-clad façade."
+          },
+          "scope": {
+            "included": [
+              "Site study and concept options",
+              "Floor plans, elevations and sections (2D)",
+              "3D exterior views",
+              "Working drawings for construction",
+              "Two site visits at key stages",
+              "Terrace garden design (added in v2)",
+              "Stone façade detailing (added in v2)"
+            ],
+            "exclusions": [
+              "Structural design",
+              "MEP (plumbing, electrical, HVAC) design",
+              "Municipal approvals and liaison",
+              "Regular site supervision",
+              "Interior design and furniture",
+              "Landscape design"
+            ]
+          },
+          "phases": [
+            {
+              "name": "Concept",
+              "deliverables": [
+                "Site analysis",
+                "2 concept options"
+              ],
+              "start": "2026-08-10",
+              "end": "2026-08-30",
+              "revisions": 2
+            },
+            {
+              "name": "2D plans",
+              "deliverables": [
+                "Floor plans",
+                "Elevations",
+                "Sections"
+              ],
+              "start": "2026-08-31",
+              "end": "2026-10-04",
+              "revisions": 2
+            },
+            {
+              "name": "3D / visuals",
+              "deliverables": [
+                "4 exterior 3D views",
+                "Terrace garden view"
+              ],
+              "start": "2026-10-05",
+              "end": "2026-11-24",
+              "revisions": 2
+            },
+            {
+              "name": "Working drawings",
+              "deliverables": [
+                "Construction drawing set"
+              ],
+              "start": "2026-11-25",
+              "end": "2027-01-16",
+              "revisions": 1
+            }
+          ],
+          "fees": {
+            "totalFee": 500000,
+            "gstEnabled": false,
+            "gstRatePercent": 18,
+            "milestones": [
+              {
+                "id": "m1",
+                "label": "Advance",
+                "percent": 20,
+                "trigger": "On signing this agreement"
+              },
+              {
+                "id": "m2",
+                "label": "Plans approved",
+                "percent": 30,
+                "trigger": "On approval of 2D plans"
+              },
+              {
+                "id": "m3",
+                "label": "3D approved",
+                "percent": 25,
+                "trigger": "On approval of 3D views"
+              },
+              {
+                "id": "m4",
+                "label": "Working drawings",
+                "percent": 25,
+                "trigger": "Before release of working drawings"
+              }
+            ],
+            "paymentModes": [
+              "UPI",
+              "Bank transfer (NEFT/RTGS/IMPS)",
+              "Cheque"
+            ],
+            "latePaymentTerms": "Payments are due within 7 days of the trigger event. Work on the next phase begins only after the previous milestone is paid. Delayed payments extend the timeline day for day."
+          },
+          "revisions": {
+            "extraRevisionRate": 5000,
+            "clause": "Each phase includes the number of revisions listed. Further revisions, or new references after a phase is approved, are charged at the stated rate per revision or quoted separately before work begins."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "a-patel",
+    "projectId": "p-patel",
+    "title": "Architectural services — Patel Weekend Villa",
+    "templateId": "tpl-residential",
+    "createdAt": "2026-11-16T11:00:00+05:30",
+    "versions": [
+      {
+        "id": "av-patel-1",
+        "version": 1,
+        "token": "smpPatelV1rT6yUd2fGh8JkM",
+        "status": "draft",
+        "createdAt": "2026-11-16T11:00:00+05:30",
+        "updatedAt": "2026-11-17T11:00:00+05:30",
+        "sentAt": null,
+        "viewedAt": null,
+        "acceptedAt": null,
+        "acceptedByName": null,
+        "acceptanceHash": null,
+        "changeNote": "First draft",
+        "content": {
+          "parties": {
+            "architect": {
+              "firmName": ".PLN architects",
+              "architectName": "Ar. Ayush Vasoya",
+              "coaNumber": "CA/0000/00000 (sample)",
+              "address": "Studio address (set in Settings), Surat, Gujarat",
+              "phone": "+91 90000 00000",
+              "email": "studio@example.com",
+              "gstin": ""
+            },
+            "client": {
+              "name": "Harsh Patel",
+              "address": "Plot 7, Sample Farms, Dumas, Surat",
+              "phone": "+91 90000 22222",
+              "email": "harsh.p@example.com"
+            }
+          },
+          "timeline": {
+            "overallDeadline": "2027-03-18",
+            "dependencyClause": "The timeline starts on receipt of the advance and of the inputs listed in this agreement (site survey, measurements, ownership documents, approved brief). Any delay by the client in feedback, approvals, inputs or payments extends every subsequent deadline day for day.",
+            "changeClause": "Changes to scope, brief or references after a phase is approved are change requests. Each change request, its effect on the timeline and any additional fee will be confirmed in writing (WhatsApp or email) before work on it begins, and the revised dates then replace the earlier ones."
+          },
+          "communication": {
+            "officialChannels": [
+              "WhatsApp",
+              "Email"
+            ],
+            "responseTime": "Messages are answered within 1–2 working days. Feedback on each submission is expected within 7 days; after that the submission is treated as approved and the timeline continues.",
+            "approvalDefinition": "A phase is approved when the client confirms in writing (a WhatsApp or email message such as “approved” or “go ahead”), or does not raise changes within 7 days of a submission."
+          },
+          "ownership": {
+            "clause": "All drawings, designs, models and documents remain the intellectual property of the architect. On payment of all fees due, the client receives the right to use them for the construction of this project at this site only. They may not be reused for another site or project without written permission.",
+            "portfolioPermission": true
+          },
+          "fileRelease": {
+            "clause": "Work-in-progress files are shared for viewing and discussion only (watermarked PDFs or images). Final printable and editable files for a phase are released after the payment milestone for that phase is received."
+          },
+          "termination": {
+            "clause": "Either party may end this agreement by written notice (WhatsApp or email). The client will pay for the work completed up to the date of notice, calculated stage-wise from the fee schedule (or, for a stage in progress, in proportion to the work done). The advance is non-refundable to the extent of work done."
+          },
+          "legal": {
+            "confidentiality": "Both parties will keep each other’s personal, financial and project information confidential and will not share it with third parties except as needed to deliver the project or as required by law.",
+            "disputeResolution": "Any disagreement will first be discussed in good faith between the parties. If not resolved within 30 days, it will be referred to mediation by a mutually agreed mediator. If mediation fails, the courts at Ahmedabad, Gujarat, India shall have exclusive jurisdiction.",
+            "governingLaw": "This agreement is governed by the laws of India."
+          },
+          "project": {
+            "title": "Patel Weekend Villa, Dumas",
+            "site": "Dumas, Surat",
+            "type": "Residential",
+            "area": "Plot 6,000 sq ft · built-up 3,200 sq ft",
+            "brief": "Weekend villa with pool, 3 bedrooms and an open kitchen facing the garden."
+          },
+          "scope": {
+            "included": [
+              "Site study and concept options",
+              "Floor plans, elevations and sections (2D)",
+              "3D exterior views",
+              "Working drawings for construction",
+              "Two site visits at key stages",
+              "Pool and deck layout (architectural only)"
+            ],
+            "exclusions": [
+              "Structural design",
+              "MEP (plumbing, electrical, HVAC) design",
+              "Municipal approvals and liaison",
+              "Regular site supervision",
+              "Interior design and furniture",
+              "Landscape design"
+            ]
+          },
+          "phases": [
+            {
+              "name": "Concept",
+              "deliverables": [
+                "Site analysis",
+                "2 concept options"
+              ],
+              "start": "2026-11-21",
+              "end": "2026-12-18",
+              "revisions": 2
+            },
+            {
+              "name": "2D plans",
+              "deliverables": [
+                "Floor plans",
+                "Elevations"
+              ],
+              "start": "2026-12-19",
+              "end": "2027-01-17",
+              "revisions": 2
+            },
+            {
+              "name": "3D / visuals",
+              "deliverables": [
+                "Exterior and pool views"
+              ],
+              "start": "2027-01-18",
+              "end": "2027-02-11",
+              "revisions": 2
+            },
+            {
+              "name": "Working drawings",
+              "deliverables": [
+                "Construction drawing set"
+              ],
+              "start": "2027-02-12",
+              "end": "2027-03-18",
+              "revisions": 1
+            }
+          ],
+          "fees": {
+            "totalFee": 450000,
+            "gstEnabled": false,
+            "gstRatePercent": 18,
+            "milestones": [
+              {
+                "id": "m1",
+                "label": "Advance",
+                "percent": 20,
+                "trigger": "On signing this agreement"
+              },
+              {
+                "id": "m2",
+                "label": "Plans approved",
+                "percent": 30,
+                "trigger": "On approval of 2D plans"
+              },
+              {
+                "id": "m3",
+                "label": "3D approved",
+                "percent": 25,
+                "trigger": "On approval of 3D views"
+              },
+              {
+                "id": "m4",
+                "label": "Working drawings",
+                "percent": 25,
+                "trigger": "Before release of working drawings"
+              }
+            ],
+            "paymentModes": [
+              "UPI",
+              "Bank transfer (NEFT/RTGS/IMPS)",
+              "Cheque"
+            ],
+            "latePaymentTerms": "Payments are due within 7 days of the trigger event. Work on the next phase begins only after the previous milestone is paid. Delayed payments extend the timeline day for day."
+          },
+          "revisions": {
+            "extraRevisionRate": 5000,
+            "clause": "Each phase includes the number of revisions listed. Further revisions, or new references after a phase is approved, are charged at the stated rate per revision or quoted separately before work begins."
+          }
+        }
+      }
+    ]
+  }
+]

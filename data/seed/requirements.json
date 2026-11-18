@@ -1,0 +1,48 @@
+[
+  {
+    "id": "r1",
+    "projectId": "p-desai",
+    "text": "4 bedrooms with attached baths, double-height living, home office near entrance, two-car parking.",
+    "category": "brief",
+    "references": [],
+    "receivedOn": "2026-08-09",
+    "version": 1
+  },
+  {
+    "id": "r2",
+    "projectId": "p-desai",
+    "text": "Façade in natural stone cladding with deep chajjas; terrace garden with pergola and seating.",
+    "category": "style",
+    "references": [
+      {
+        "label": "Façade references (6 images)",
+        "url": "https://example.com/references"
+      }
+    ],
+    "receivedOn": "2026-10-29",
+    "version": 2
+  },
+  {
+    "id": "r3",
+    "projectId": "p-patel",
+    "text": "Pool facing west for sunset, 3 bedrooms, open kitchen to garden, low maintenance materials.",
+    "category": "brief",
+    "references": [
+      {
+        "label": "Instagram post",
+        "url": "https://example.com/post"
+      }
+    ],
+    "receivedOn": "2026-10-25",
+    "version": 1
+  },
+  {
+    "id": "r4",
+    "projectId": "p-joshi",
+    "text": "Warm minimal interiors, lots of storage, study nook in the second bedroom.",
+    "category": "style",
+    "references": [],
+    "receivedOn": "2026-09-17",
+    "version": 1
+  }
+]
