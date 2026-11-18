@@ -14,7 +14,7 @@
   --terra-line: rgba(110, 53, 17, 0.3);
   --ink: #333B2F;
   --ink-muted: #525B4C;
-  --ink-faint: #6F796A;
+  --ink-faint: #5B6555;
   --danger: #A12A12;
   --danger-faint: rgba(161, 42, 18, 0.08);
   --warn: #8A5A00;
@@ -123,6 +123,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* KPIs */
 .kpis { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.75rem; margin-bottom: 1rem; }
+.kpis.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .kpi { background: #fff; border: 1px solid var(--sage-line); border-top: 3px solid var(--sage); padding: 0.8rem 0.9rem; text-decoration: none; display: grid; gap: 0.2rem; }
 .kpi:hover { border-color: var(--ink); }
 .kpi.warn { border-top-color: var(--warn); }
@@ -324,7 +325,8 @@ dialog.modal::backdrop { background: rgba(28, 33, 25, 0.5); }
   .grid.two, .grid.three, .grid.side-main { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 640px) {
-  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpis, .kpis.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi .v { font-size: 1.1rem; overflow-wrap: anywhere; }
   .form-grid { grid-template-columns: minmax(0, 1fr); }
   .money-row { grid-template-columns: minmax(0, 1fr); }
   .gantt-row { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; }

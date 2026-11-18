@@ -218,7 +218,7 @@ export function AgreementEditor({ agreementId, versionId, title, version, initia
           <p className="disclaimer" style={{ marginTop: 0 }}>{DISCLAIMER}</p>
         </div>
       </div>
-      <div className="editor-preview" aria-label="Live preview">
+      <div className="editor-preview" role="region" aria-label="Live preview" tabIndex={0}>
         <AgreementDocument content={c} title={title} version={version} branding={{ name: settings.firm.name, architectName: settings.firm.architectName, coaNumber: settings.firm.coaNumber, phone: settings.firm.phone, email: settings.firm.email, logoUrl: settings.firm.logoUrl }} showValidation />
       </div>
     </div>

@@ -79,7 +79,7 @@ export function SharePanel({ agreement, version, settings, clientPhone, clientEm
           {!feesValid && <div className="notice" role="alert">The fee schedule must total 100% before this can be shared.</div>}
           {link && (
             <>
-              <div className="share-url" aria-label="Share link">{link.url}</div>
+              <div className="share-url" role="region" aria-label="Share link" tabIndex={0}>{link.url}</div>
               <span className="faint" style={{ fontSize: '0.72rem' }}>{link.length.toLocaleString('en-IN')} characters · the agreement travels inside the link</span>
               {link.tooLong && <div className="notice" role="status">This link is long ({link.length.toLocaleString('en-IN')} characters). It works in browsers, but some apps cut long links — if the client cannot open it, send the PDF as well.</div>}
             </>

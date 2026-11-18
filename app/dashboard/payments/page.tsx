@@ -61,7 +61,7 @@ function Payments() {
         <button type="button" className="btn" onClick={() => setAdding(true)}>+ Payment</button>
         <button type="button" className="btn primary" onClick={() => router.replace('/dashboard/payments?record=1')}>Record receipt</button>
       </>} />
-      <div className="kpis" style={{ gridTemplateColumns: 'repeat(4, minmax(0, 1fr))' }}>
+      <div className="kpis four">
         <div className="kpi"><span className="k">Billed</span><span className="v">{formatINR(t.billed)}</span></div>
         <div className="kpi"><span className="k">Received</span><span className="v">{formatINR(t.received)}</span></div>
         <div className="kpi warn"><span className="k">Outstanding</span><span className="v">{formatINR(t.outstanding)}</span></div>

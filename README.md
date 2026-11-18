@@ -1,27 +1,35 @@
-# .PLN architects — portfolio
+# .PLN architects — portfolio and practice dashboard
 
-Portfolio site for .PLN architects (Ar. Ayush Vasoya, Surat). Plain static HTML/CSS/JS with no build step.
+- **Portfolio** — the original static site (HTML/CSS/JS, Three.js) in `public/`, served at `/`.
+- **Plan to 3D** — `public/plan-to-3d.html`, an in-browser floor-plan-to-3D tool.
+- **Practice dashboard** — `/dashboard`, a private Next.js app for clients, projects, agreements and
+  payments, with shareable agreements at `/agreement/[token]`. See **[docs/dashboard.md](docs/dashboard.md)**.
 
 ## Run locally
 
-ES modules need a server, so open it through one rather than double-clicking `index.html`:
-
-    python3 -m http.server 8000
+```bash
+npm install
+cp .env.example .env.local     # set NEXT_PUBLIC_DASHBOARD_PASSCODE
+npm run dev                    # portfolio: http://localhost:3000  ·  dashboard: /dashboard
+npm run check                  # lint + type-check + unit tests + production build
+```
 
 ## Deploy
 
-Publish the repository root as a static site (GitHub Pages, Vercel, Netlify, Cloudflare Pages). No build command; output directory is `/`.
+Deploy as a Next.js app (Vercel or Netlify, no extra configuration). Set the environment variable
+`NEXT_PUBLIC_DASHBOARD_PASSCODE`. (The site is no longer a plain static folder: the public agreement
+route accepts any share token.)
 
-## Editing
+## Editing the portfolio
 
-- `js/projects.js` — project list, photo captions and contact details. Projects with `images` appear as featured works.
-- `assets/img/` — photographs.
-- `plan-to-3d.html`, `js/plan-tool.js`, `css/tool.css` — the Plan to 3D page (linked from the home page).
-- `js/plan/analyse.js` — reads walls, doors, windows, rooms and the footprint from an uploaded plan image.
-- `js/plan/linework.js` — separates walls from other drafting using plan conventions: dashed/dotted lines, text, stairs, furniture, door swings and window glazing.
-- `js/plan/furnish.js` — guesses room types and lays out furniture, plants and lamps per room.
-- `js/plan/viewer.js` — builds and renders the model (massing, cut plan or full 3D; finishes, lighting, styles, sections, site) and exports PNG/GLB.
-- `js/plan/sample.js` — the built-in sample plan.
-- `vendor/addons/` — Three.js OrbitControls and GLTFExporter, used only by the Plan to 3D page.
-- `js/scene.js` — the 3D study model (Three.js, vendored in `vendor/`).
-- `index.html`, `css/style.css` — page copy and styling.
+- `public/js/projects.js` — project list, photo captions and contact details.
+- `public/assets/img/` — photographs.
+- `public/index.html`, `public/css/style.css` — page copy and styling.
+- `public/js/scene.js` — the 3D study model on the home page.
+- Plan to 3D: `public/plan-to-3d.html`, `public/js/plan-tool.js`, `public/css/tool.css`, and the engine in
+  `public/js/plan/` (`analyse.js`, `linework.js`, `furnish.js`, `viewer.js`, `sample.js`).
+
+## Dashboard code
+
+`app/dashboard/**`, `app/agreement/[token]`, `components/**`, `lib/{schemas,repositories,storage,sharing,logic,format,hooks}`,
+sample data in `data/seed/` (fake data only — never commit real client data; `data/real/` is git-ignored).
