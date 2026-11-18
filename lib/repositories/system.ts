@@ -13,7 +13,7 @@ export async function updateSettings(next: Settings): Promise<Settings> {
 }
 
 export async function getActivity(limit = 50, projectId?: string): Promise<Activity[]> {
-  const all = (await getDb()).activity;
+  const all = [...(await getDb()).activity].sort((a, b) => b.at.localeCompare(a.at));
   return (projectId ? all.filter((a) => a.projectId === projectId) : all).slice(0, limit);
 }
 
