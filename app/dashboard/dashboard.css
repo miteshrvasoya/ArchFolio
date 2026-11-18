@@ -339,3 +339,15 @@ dialog.modal::backdrop { background: rgba(28, 33, 25, 0.5); }
   .btn.small { min-height: 2.1rem; }
 }
 @media (prefers-reduced-motion: reduce) { .side { transition: none; } .skeleton { animation: none; } }
+
+/* ---------- print: only the document ---------- */
+@media print {
+  .dash-root { background: #fff !important; }
+  .side, .topbar, .scrim, .skip-link, .toasts, .no-print, .page-head, .tabs { display: none !important; }
+  .grid, .grid.side-main, .stack { display: block !important; }
+  .card.print-area { border: 0 !important; padding: 0 !important; }
+  .dash { display: block; }
+  .content { padding: 0; max-width: none; }
+  .editor { display: block; }
+  .editor-preview, .print-area { border: 0 !important; position: static !important; max-height: none !important; overflow: visible !important; }
+}
