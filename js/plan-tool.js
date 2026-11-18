@@ -14,7 +14,7 @@ const MODE_HELP = {
 
 const cfg = {
   // detection
-  width: 12, wallStyle: 'solid', sensitivity: 0.5, cleanup: 0.4, maxOpening: 2, exterior: 'auto',
+  width: 12, wallStyle: 'auto', sensitivity: 0.5, cleanup: 0.4, maxOpening: 2, exterior: 'auto',
   // model
   mode: 'full', finish: 'plaster', storeys: 1, wallHeight: 3,
   // elements
@@ -189,6 +189,7 @@ const m2 = (v) => `${Math.round(v).toLocaleString('en-IN')} m²`;
 function report(st) {
   if (!st) { say('No walls found. Raise “Line sensitivity”, lower “Ignore small details”, or try “As two lines”.', true); return; }
   drawDetection();
+  describeDetection();
   $('kpis').hidden = false;
   $('kSize').textContent = `${st.width.toFixed(1)} × ${st.depth.toFixed(1)} m`;
   $('kBuilt').textContent = m2(st.builtUp);
@@ -227,6 +228,23 @@ function drawDetection() {
   g.imageSmoothingEnabled = false;
   g.drawImage(tmp, 0, 0, w, h);
   $('detectFig').hidden = false;
+}
+
+/* what the reader recognised and set aside as non-wall drafting */
+function describeDetection() {
+  const A = viewer.analysis;
+  if (!A) return;
+  $('detectHelp').textContent = cfg.wallStyle === 'auto'
+    ? `Detected: walls drawn ${A.style === 'outlined' ? 'as two lines' : 'filled'}.` : '';
+  const lw = A.linework || {};
+  const parts = [];
+  if (lw.marks) parts.push('dashed & dotted lines, text and symbols');
+  if (lw.stairs) parts.push(`${lw.stairs} staircase${lw.stairs > 1 ? 's' : ''}`);
+  if (lw.furniture) parts.push('furniture');
+  if (lw.swings || lw.curves) parts.push('door leaves & swings');
+  const el = $('cleanSummary');
+  el.hidden = !parts.length;
+  el.textContent = parts.length ? `Set aside as non-wall drafting: ${parts.join(', ')}.` : '';
 }
 
 function renderRooms() {

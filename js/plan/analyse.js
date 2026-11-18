@@ -3,6 +3,8 @@
    door/window openings, enclosed rooms and the building footprint.
    ========================================================================== */
 
+import { components, strokeStats, removeMarks, removeStairs, removeFurniture, findWindows, keepStructural, clearDoorSwings } from './linework.js';
+
 const lerp = (a, b, t) => a + (b - a) * t;
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
@@ -36,72 +38,6 @@ function luminance(canvas) {
   return lum;
 }
 
-/** Typical wall stroke thickness in pixels: per dark pixel the shorter of its
-    horizontal and vertical run, then a high percentile (walls dominate ink area). */
-function strokeThickness(mask, w, h) {
-  const hr = new Uint16Array(mask.length);
-  for (let y = 0; y < h; y++) {
-    let x = 0;
-    while (x < w) {
-      if (!mask[y * w + x]) { x++; continue; }
-      const s = x;
-      while (x < w && mask[y * w + x]) x++;
-      hr.fill(Math.min(x - s, 65535), y * w + s, y * w + x);
-    }
-  }
-  const hist = new Float64Array(129);
-  let total = 0;
-  for (let x = 0; x < w; x++) {
-    let y = 0;
-    while (y < h) {
-      if (!mask[y * w + x]) { y++; continue; }
-      const s = y;
-      while (y < h && mask[y * w + x]) y++;
-      const v = y - s;
-      for (let k = s; k < y; k++) {
-        const t = Math.min(128, Math.min(v, hr[k * w + x]));
-        if (t >= 2) { hist[t]++; total++; }
-      }
-    }
-  }
-  if (!total) return 2;
-  let acc = 0;
-  for (let t = 2; t <= 128; t++) { acc += hist[t]; if (acc >= total * 0.7) return t; }
-  return 128;
-}
-
-/** Connected components of non-zero cells. */
-function components(mask, gw, gh, eight) {
-  const n = gw * gh;
-  const label = new Int32Array(n).fill(-1);
-  const size = [], minX = [], minY = [], maxX = [], maxY = [];
-  const stack = [];
-  for (let s = 0; s < n; s++) {
-    if (!mask[s] || label[s] !== -1) continue;
-    const id = size.length;
-    let c = 0, x0 = gw, y0 = gh, x1 = 0, y1 = 0;
-    label[s] = id; stack.push(s);
-    while (stack.length) {
-      const i = stack.pop(); c++;
-      const x = i % gw, y = (i - x) / gw;
-      if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
-      for (let dy = -1; dy <= 1; dy++) {
-        const yy = y + dy;
-        if (yy < 0 || yy >= gh) continue;
-        for (let dx = -1; dx <= 1; dx++) {
-          if (!eight && dx && dy) continue;
-          const xx = x + dx;
-          if (xx < 0 || xx >= gw) continue;
-          const j = yy * gw + xx;
-          if (mask[j] && label[j] === -1) { label[j] = id; stack.push(j); }
-        }
-      }
-    }
-    size.push(c); minX.push(x0); minY.push(y0); maxX.push(x1); maxY.push(y1);
-  }
-  return { label, size, minX, minY, maxX, maxY };
-}
-
 function dropSmall(mask, gw, gh, cleanup) {
   const cc = components(mask, gw, gh, true);
   const biggest = cc.size.reduce((a, b) => Math.max(a, b), 0);
@@ -109,27 +45,36 @@ function dropSmall(mask, gw, gh, cleanup) {
   for (let i = 0; i < mask.length; i++) if (mask[i] && cc.size[cc.label[i]] < min) mask[i] = 0;
 }
 
-/** Group the drawing's pieces into one building: start from the largest piece and
-    add every piece whose box lies within `tol` cells of the group so far. Pieces of
-    one wall broken by window or door gaps join; distant title blocks do not. */
-function cluster(mask, gw, gh, tol) {
+/** Group the drawing's pieces into one building. Start from the largest piece and
+    add pieces within `tol` cells of a kept piece; with `far`, also add pieces that
+    line up with a kept one along its wall (same rows for horizontal pieces, same
+    columns for vertical ones) up to `far` away — a wall broken by window gaps
+    joins, while dimension lines and scale bars, which run alongside at an offset,
+    do not. */
+function cluster(mask, gw, gh, tol, far = 0) {
   const kc = components(mask, gw, gh, true);
   if (!kc.size.length) return null;
   let m = 0;
   kc.size.forEach((s, i) => { if (s > kc.size[m]) m = i; });
-  const keep = kc.size.map((_, i) => i === m);
-  let x0 = kc.minX[m], y0 = kc.minY[m], x1 = kc.maxX[m], y1 = kc.maxY[m];
-  for (let grew = true; grew;) {
-    grew = false;
-    kc.size.forEach((_, i) => {
-      if (keep[i]) return;
-      if (kc.maxX[i] >= x0 - tol && kc.minX[i] <= x1 + tol && kc.maxY[i] >= y0 - tol && kc.minY[i] <= y1 + tol) {
-        keep[i] = true; grew = true;
-        x0 = Math.min(x0, kc.minX[i]); y0 = Math.min(y0, kc.minY[i]);
-        x1 = Math.max(x1, kc.maxX[i]); y1 = Math.max(y1, kc.maxY[i]);
-      }
-    });
+  const N = kc.size.length;
+  const keep = new Array(N).fill(false);
+  keep[m] = true;
+  const queue = [m];
+  for (let q = 0; q < queue.length; q++) {
+    const a = queue[q];
+    for (let b = 0; b < N; b++) {
+      if (keep[b]) continue;
+      const gx = Math.max(0, kc.minX[b] - kc.maxX[a], kc.minX[a] - kc.maxX[b]);
+      const gy = Math.max(0, kc.minY[b] - kc.maxY[a], kc.minY[a] - kc.maxY[b]);
+      const bw = kc.maxX[b] - kc.minX[b], bh = kc.maxY[b] - kc.minY[b];
+      const near = Math.max(gx, gy) <= tol
+        || (far && bw >= bh && gy === 0 && gx <= far)
+        || (far && bh > bw && gx === 0 && gy <= far);
+      if (near) { keep[b] = true; queue.push(b); }
+    }
   }
+  let x0 = gw, y0 = gh, x1 = 0, y1 = 0;
+  keep.forEach((k, i) => { if (k) { x0 = Math.min(x0, kc.minX[i]); y0 = Math.min(y0, kc.minY[i]); x1 = Math.max(x1, kc.maxX[i]); y1 = Math.max(y1, kc.maxY[i]); } });
   return { keep, label: kc.label, x0, y0, x1, y1 };
 }
 
@@ -285,10 +230,13 @@ export function analysePlan(source, o) {
   const cut = lerp(70, 215, o.sensitivity);
   const pmask = new Uint8Array(plum.length);
   for (let i = 0; i < plum.length; i++) pmask[i] = plum[i] < cut ? 1 : 0;
-  const T = strokeThickness(pmask, probe.width, probe.height);
+  const { T, heavyShare } = strokeStats(pmask, probe.width, probe.height);
+  // filled (poché) walls put most ink in heavy strokes; line drawings do not
+  const style = o.wallStyle === 'auto' || !o.wallStyle ? (heavyShare < 0.3 ? 'outlined' : 'solid') : o.wallStyle;
   const probeLong = Math.max(probe.width, probe.height);
   // aim for ~8 cells across a typical wall: thin enough strokes survive, hairlines don't
-  const gridLong = Math.round(clamp(probeLong * 8 / T, 360, 1100));
+  // line drawings keep more resolution so hairline glazing and jamb lines survive
+  const gridLong = style === 'outlined' ? Math.min(probeLong, 1400) : Math.round(clamp(probeLong * 8 / T, 360, 1100));
   const small = gridLong >= probeLong ? probe : rasterise(source, gridLong);
   const gw = small.width, gh = small.height, n = gw * gh;
   const Tg = T * (Math.max(gw, gh) / probeLong);
@@ -296,7 +244,9 @@ export function analysePlan(source, o) {
 
   let wall = new Uint8Array(n);
   const ink = new Uint8Array(n);
-  for (let i = 0; i < n; i++) { wall[i] = lum[i] < cut ? 1 : 0; ink[i] = lum[i] < 232 ? 1 : 0; }
+  // in line drawings any clear ink is linework (anti-aliased hairlines read grey)
+  const wcut = style === 'outlined' ? Math.max(cut, 200) : cut;
+  for (let i = 0; i < n; i++) { wall[i] = lum[i] < wcut ? 1 : 0; ink[i] = lum[i] < 232 ? 1 : 0; }
 
   // --- 2. drop sheet borders / title-block frames: huge, almost empty outlines ---
   let cc = components(wall, gw, gh, true);
@@ -316,31 +266,60 @@ export function analysePlan(source, o) {
   const c0 = cluster(wall, gw, gh, tol);
   const cell0 = o.width / Math.max(8, c0.x1 - c0.x0 + 1);
 
-  // --- 4. normalise wall strokes ---
-  if (o.wallStyle === 'outlined') {
+  const dbg = o.debug ? {} : null;
+  const snap = (k) => { if (dbg) dbg[k] = wall.slice(); };
+  snap('threshold');
+  // --- 4. strip drafting that is never wall ---
+  // dashed / dotted lines, text and symbols go first, while letters are still apart
+  const marks = removeMarks(wall, gw, gh, cell0);
+  // line drawings: mend hairlines broken by downscaling (gaps of a cell or two)
+  if (style === 'outlined') wall = morph(morph(wall, gw, gh, 1, false), gw, gh, 1, true);
+  const linework = {
+    marks,
+    stairs: removeStairs(wall, gw, gh, cell0),        // evenly spaced treads
+    furniture: style === 'outlined' ? removeFurniture(wall, gw, gh, cell0, Tg) : 0
+  };
+
+  snap('cleaned');
+  // --- 5. normalise wall strokes ---
+  let windowCells = null;
+  if (style === 'outlined') {
+    const raw = wall.slice();
     const k = Math.max(1, Math.round(0.35 / cell0));
     const hb = runBridges(wall, gw, gh, 1, k, true);
     for (let i = 0; i < n; i++) wall[i] |= hb[i];
     const vb = runBridges(wall, gw, gh, 1, k, false);
     for (let i = 0; i < n; i++) wall[i] |= vb[i];
-    // single lines that were not half of a wall (dimensions, furniture, grid bubbles) stay thin
-    wall = morph(morph(wall, gw, gh, 1, true), gw, gh, 1, false);
+    // single lines that were not half of a wall stay thin and are opened away
+    // radius: enough to clear a single line, never enough to clear a 0.09 m partition
+    const r = Math.max(1, Math.min(Math.ceil(0.6 * Tg), Math.floor((0.09 / cell0 - 1) / 2)));
+    snap('filled');
+    wall = morph(morph(wall, gw, gh, r, true), gw, gh, r, false);
+    snap('opened');
+    // glazing lines inside a wall's thickness mark a window
+    windowCells = findWindows(wall, raw, gw, gh, cell0, o.maxOpening);
+    for (let i = 0; i < n; i++) if (windowCells[i]) wall[i] = 0;
   } else if (Tg >= 4.5) {
     // strip hairlines (window symbols, hatching, dimension and swing lines)
     const r = Tg >= 11 ? 2 : 1;
     wall = morph(morph(wall, gw, gh, r, true), gw, gh, r, false);
   }
+  // only long straight strokes or wall-thick blobs are walls
+  snap('normalised');
+  linework.curves = keepStructural(wall, gw, gh, cell0).removed;
+  snap('structural');
   wall = fillPinholes(wall, gw, gh);
   dropSmall(wall, gw, gh, o.cleanup);
 
   // keep only drawing that belongs to the building: dimension chains, grid
   // bubbles, scale bars and title blocks away from it would float in the model
   {
-    const k = cluster(wall, gw, gh, tol);
+    // pieces of one building are at most an opening apart (windows are now gaps)
+    const k = cluster(wall, gw, gh, tol, Math.round((o.maxOpening + 0.4) / cell0));
     if (k) for (let i = 0; i < n; i++) if (wall[i] && !k.keep[k.label[i]]) wall[i] = 0;
   }
 
-  // --- 5. final scale from the walls' bounding box ---
+  // --- 6. final scale from the walls' bounding box ---
   let bx0 = gw, by0 = gh, bx1 = -1, by1 = -1;
   for (let y = 0; y < gh; y++) for (let x = 0; x < gw; x++) {
     if (!wall[y * gw + x]) continue;
@@ -350,7 +329,7 @@ export function analysePlan(source, o) {
   const cell = o.width / (bx1 - bx0 + 1);
   const cx = (bx0 + bx1 + 1) / 2, cy = (by0 + by1 + 1) / 2;
 
-  // --- 6. openings ---
+  // --- 7. openings ---
   // A door or window is a short gap that starts at a free end of a wall, where
   // the same wall carries on past the gap. A gap that merely runs from one wall
   // face to another (across a corridor, or from a T-junction) is open space.
@@ -410,7 +389,15 @@ export function analysePlan(source, o) {
     });
   });
 
-  // --- 7. outside vs rooms ---
+  // door leaves, swing arcs and symbols inside a door's swing zone are not walls
+  const blankGap = (op) => {
+    let inked = 0;
+    for (let yy = op.y; yy < op.y + op.h; yy++) for (let xx = op.x; xx < op.x + op.w; xx++) inked += ink[yy * gw + xx];
+    return inked / (op.w * op.h) <= 0.12;
+  };
+  linework.swings = clearDoorSwings(wall, openings, gw, gh, cell, blankGap);
+
+  // --- 8. outside vs rooms ---
   const closed = new Uint8Array(n);
   for (let i = 0; i < n; i++) closed[i] = wall[i] || openIdx[i] ? 1 : 0;
   const outside = new Uint8Array(n);
@@ -455,7 +442,7 @@ export function analysePlan(source, o) {
     r.exteriorWindows = 0; r.doors = 0; r.entrance = false;
   });
 
-  // --- 8. classify openings ---
+  // --- 9. classify openings ---
   const isOut = (x, y) => x < 0 || y < 0 || x >= gw || y >= gh || outside[y * gw + x];
   const roomAt = (x, y) => (x < 0 || y < 0 || x >= gw || y >= gh ? 0 : roomOf[y * gw + x]);
   const probeRoom = (x, y, dx, dy) => {
@@ -485,7 +472,7 @@ export function analysePlan(source, o) {
     else op.type = len <= 1.35 ? 'door' : 'opening';
   });
 
-  // --- 9. rectangles and footprint ---
+  // --- 10. rectangles and footprint ---
   const wallRects = rectMerge(wall, gw, gh);
   const roomRects = rectMerge(roomOf, gw, gh);
   const foot = new Uint8Array(n);
@@ -506,7 +493,7 @@ export function analysePlan(source, o) {
   for (let i = 0; i < n; i++) { footCells += foot[i]; wallCells += wall[i]; }
 
   return {
-    gw, gh, cell, cx, cy, grid: `${gw}×${gh}`, stroke: Tg,
+    gw, gh, cell, cx, cy, grid: `${gw}×${gh}`, stroke: Tg, style, linework, debug: dbg,
     width: o.width, depth: (by1 - by0 + 1) * cell,
     bbox: { x0: bx0, y0: by0, x1: bx1 + 1, y1: by1 + 1 },
     wall, openIdx, roomOf, outside,

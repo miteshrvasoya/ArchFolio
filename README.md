@@ -18,6 +18,7 @@ Publish the repository root as a static site (GitHub Pages, Vercel, Netlify, Clo
 - `assets/img/` — photographs.
 - `plan-to-3d.html`, `js/plan-tool.js`, `css/tool.css` — the Plan to 3D page (linked from the home page).
 - `js/plan/analyse.js` — reads walls, doors, windows, rooms and the footprint from an uploaded plan image.
+- `js/plan/linework.js` — separates walls from other drafting using plan conventions: dashed/dotted lines, text, stairs, furniture, door swings and window glazing.
 - `js/plan/furnish.js` — guesses room types and lays out furniture, plants and lamps per room.
 - `js/plan/viewer.js` — builds and renders the model (massing, cut plan or full 3D; finishes, lighting, styles, sections, site) and exports PNG/GLB.
 - `js/plan/sample.js` — the built-in sample plan.

@@ -83,6 +83,7 @@
           <input type="range" id="rWidth" min="4" max="80" step="0.5" value="12">
         </label>
         <p class="help">Outer-to-outer width of the walls. Sets the scale for everything else.</p>
+        <p class="help" id="cleanSummary" hidden></p>
       </fieldset>
       <fieldset class="group" disabled>
         <details>
@@ -90,9 +91,11 @@
           <div class="field">
             <span class="field-k" id="wsLbl">Walls are drawn</span>
             <div class="seg" role="radiogroup" aria-labelledby="wsLbl" id="wallStyleSeg">
-              <button type="button" role="radio" data-v="solid" aria-checked="true">Filled</button>
-              <button type="button" role="radio" data-v="outlined" aria-checked="false">As two lines</button>
+              <button type="button" role="radio" data-v="auto" aria-checked="true">Auto</button>
+              <button type="button" role="radio" data-v="solid" aria-checked="false">Filled</button>
+              <button type="button" role="radio" data-v="outlined" aria-checked="false">Two lines</button>
             </div>
+            <p class="help" id="detectHelp"></p>
           </div>
           <label class="range">Line sensitivity <output id="oSens">50%</output><input type="range" id="rSens" min="0" max="100" value="50"></label>
           <label class="range">Ignore small details <output id="oClean">40%</output><input type="range" id="rClean" min="0" max="100" value="40"></label>
