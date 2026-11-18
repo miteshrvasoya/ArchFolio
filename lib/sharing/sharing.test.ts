@@ -27,7 +27,7 @@ describe('share link snapshot', () => {
     expect(snapshotFromHash(hash)).toBe(encodeSnapshot(shared));
     const res = await resolveAgreement('abcdefghijklmnopqrstuvwx', hash, [snapshotResolver]);
     expect(res.ok && res.data.version).toBe(2);
-    expect(link.tooLong).toBe(link.length > 4000);
+    expect(link.tooLong).toBe(link.length > 8000);
   });
   it('rejects a snapshot whose token does not match the path', async () => {
     const hash = `#s=${encodeSnapshot(shared)}`;

@@ -1,0 +1,35 @@
+/* Public agreement page chrome (the document itself is styled by agreement.css). */
+.pub { min-height: 100dvh; background: #F3F5F1; color: #2B3127; font-family: "Montserrat", sans-serif; padding: 0 0 3rem; }
+.pub-bar { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; justify-content: space-between; padding: 0.6rem clamp(0.75rem, 3vw, 1.5rem); background: rgba(255,255,255,0.96); border-bottom: 1px solid #2B3127; }
+.pub-bar strong { letter-spacing: 0.06em; font-weight: 600; }
+.pub-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 2.5rem; padding: 0.45rem 0.9rem; border: 1px solid #2B3127; background: #fff; color: #2B3127; cursor: pointer; font: inherit; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+.pub-btn:hover { background: #2B3127; color: #fff; }
+.pub-btn.primary { background: #6E3511; border-color: #6E3511; color: #fff; }
+.pub-btn.primary:hover { background: #2B3127; border-color: #2B3127; }
+.pub-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.pub-btn:focus-visible, .pub input:focus-visible { outline: 2px solid #6E3511; outline-offset: 2px; }
+.pub-wrap { max-width: 900px; margin: 1rem auto 0; padding: 0 clamp(0.5rem, 2vw, 1rem); display: grid; gap: 1rem; }
+.pub-wrap > * { min-width: 0; }
+.pub-doc { background: #fff; overflow: hidden; border: 1px solid rgba(43,49,39,.25); }
+.pub-banner { padding: 0.75rem 1rem; border-left: 4px solid #8A5A00; background: rgba(176,120,0,0.12); font-size: 0.9rem; }
+.pub-banner.danger { border-left-color: #A12A12; background: rgba(161,42,18,0.08); }
+.pub-banner.ok { border-left-color: #3F6B3A; background: rgba(63,107,58,0.1); }
+.pub-panel { background: #fff; border: 1px solid #2B3127; padding: clamp(1rem, 3vw, 1.5rem); }
+.pub-panel h2 { font-family: "Righteous", "Montserrat", sans-serif; font-weight: 400; font-size: 1.35rem; margin: 0 0 0.5rem; }
+.pub-panel p { font-family: "Jost", sans-serif; font-size: 1rem; line-height: 1.55; margin: 0.4rem 0; }
+.pub-field { display: grid; gap: 0.3rem; margin: 0.9rem 0; }
+.pub-field label { font-size: 0.64rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #5F6858; }
+.pub-field input[type="text"] { padding: 0.65rem 0.7rem; border: 1px solid rgba(106,121,93,.4); font: inherit; font-size: 1rem; }
+.pub-check { display: flex; gap: 0.55rem; align-items: flex-start; font-family: "Jost", sans-serif; font-size: 1rem; cursor: pointer; }
+.pub-check input { width: 20px; height: 20px; accent-color: #6E3511; margin: 0.15rem 0 0; flex: none; }
+.pub-err { color: #A12A12; font-size: 0.85rem; }
+.pub-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+.pub-receipt { font-family: "JetBrains Mono", monospace; font-size: 0.75rem; white-space: pre-wrap; overflow-wrap: anywhere; background: #F9FAF8; border: 1px solid rgba(106,121,93,.3); padding: 0.75rem; max-height: 14rem; overflow: auto; }
+.pub-note { font-size: 0.78rem; color: #5F6858; }
+.pub-center { max-width: 520px; margin: 12vh auto 0; padding: 0 1rem; }
+@media print {
+  .pub { background: #fff; padding: 0; }
+  .pub-bar, .pub-panel, .pub-banner, .pub-note { display: none !important; }
+  .pub-wrap { margin: 0; padding: 0; max-width: none; display: block; }
+  .pub-doc { border: 0; }
+}

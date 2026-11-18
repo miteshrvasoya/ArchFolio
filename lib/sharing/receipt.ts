@@ -11,6 +11,7 @@
 import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string';
 import { z } from 'zod';
 import { IsoDateTime } from '@/lib/schemas';
+import { formatDateTime } from '@/lib/format';
 
 export const AcceptanceReceiptSchema = z.object({
   kind: z.literal('pln-acceptance'),
@@ -38,7 +39,7 @@ export function receiptText(r: AcceptanceReceipt): string {
   return [
     `Agreement accepted: ${r.title} (version ${r.version})`,
     `Accepted by: ${r.acceptedByName}`,
-    `Accepted at: ${r.acceptedAt}`,
+    `Accepted at: ${formatDateTime(r.acceptedAt)} IST (${r.acceptedAt})`,
     `Content hash (SHA-256): ${r.contentHash}`,
     '',
     'Acceptance code (paste into the dashboard to record it):',

@@ -11,8 +11,12 @@ import { z } from 'zod';
 import { AgreementContentSchema, AgreementVersionStatus, IsoDateTime } from '@/lib/schemas';
 
 export const SNAPSHOT_FORMAT = 1;
-/** Links longer than this may be cut off by some messengers and email clients. */
-export const LONG_LINK_WARNING = 4000;
+/**
+ * Links longer than this may be cut off by some SMS apps and older email
+ * clients. (A full agreement compresses to roughly 4–5k characters; browsers,
+ * WhatsApp and modern email handle far longer links.)
+ */
+export const LONG_LINK_WARNING = 8000;
 /** Refuse to even try decoding anything bigger (defence against hostile links). */
 const MAX_ENCODED = 200_000;
 

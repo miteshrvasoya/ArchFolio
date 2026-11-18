@@ -36,7 +36,8 @@ export function toShared(agreement: Agreement, version: AgreementVersion, settin
     latestVersion,
     status: version.status,
     title: agreement.title,
-    issuedAt: new Date().toISOString(),
+    // stable: the same version always produces the same link
+    issuedAt: version.sentAt ?? version.createdAt,
     firm: {
       name: settings.firm.name, architectName: settings.firm.architectName, coaNumber: settings.firm.coaNumber,
       phone: settings.firm.phone, email: settings.firm.email, logoUrl: settings.firm.logoUrl
