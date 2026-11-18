@@ -49,6 +49,20 @@ function buildContent(db: Database, projectId: string, base: AgreementContent): 
   return AgreementContentSchema.parse(content);
 }
 
+/** The firm's default clauses (Settings) override template text for new agreements. */
+function applyDefaults(c: AgreementContent, d: Database['settings']['defaults']): void {
+  if (d.paymentModes.length) c.fees.paymentModes = [...d.paymentModes];
+  if (d.latePaymentTerms) c.fees.latePaymentTerms = d.latePaymentTerms;
+  if (d.dependencyClause) c.timeline.dependencyClause = d.dependencyClause;
+  if (d.changeClause) c.timeline.changeClause = d.changeClause;
+  if (d.ownershipClause) c.ownership.clause = d.ownershipClause;
+  if (d.fileReleaseClause) c.fileRelease.clause = d.fileReleaseClause;
+  if (d.terminationClause) c.termination.clause = d.terminationClause;
+  if (d.confidentiality) c.legal.confidentiality = d.confidentiality;
+  if (d.disputeResolution) c.legal.disputeResolution = d.disputeResolution;
+  if (d.governingLaw) c.legal.governingLaw = d.governingLaw;
+}
+
 function newVersion(n: number, content: AgreementContent, changeNote: string): AgreementVersion {
   const now = nowIso();
   return { id: newId(), version: n, token: newToken(), status: 'draft', createdAt: now, updatedAt: now, sentAt: null, viewedAt: null, acceptedAt: null, acceptedByName: null, acceptanceHash: null, changeNote, content };
@@ -69,6 +83,7 @@ export async function createAgreement(input: CreateAgreementInput): Promise<Agre
     else if (input.templateId) base = mustFind(db.templates, input.templateId, 'Template').content;
     else base = (db.templates[0] ?? (() => { throw new DataError('No agreement templates available'); })()).content;
     const content = buildContent(db, input.projectId, base);
+    if (!input.fromAgreementId) applyDefaults(content, db.settings.defaults);
     const agreement: Agreement = {
       id: newId(), projectId: input.projectId, title: input.title, templateId: input.templateId ?? null, createdAt: nowIso(),
       versions: [newVersion(1, content, input.fromAgreementId ? 'Duplicated from a previous agreement' : 'First draft')]

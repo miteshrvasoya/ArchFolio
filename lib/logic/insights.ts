@@ -46,7 +46,7 @@ export function overviewKpis(d: OverviewInput, today: string) {
   };
 }
 
-export interface DeadlineItem { date: string; title: string; detail: string; href: string; kind: 'phase' | 'project' | 'payment' | 'action' }
+export interface DeadlineItem { date: string; title: string; detail: string; href: string; kind: 'phase' | 'project' | 'payment' | 'action' | 'task' }
 
 export function upcomingDeadlines(d: OverviewInput, from: string, to: string): DeadlineItem[] {
   const title = (id: string) => d.projects.find((p) => p.id === id)?.title ?? 'Project';
@@ -93,4 +93,25 @@ export function attentionItems(d: OverviewInput, today: string): AttentionItem[]
   }
   const rank = { danger: 0, warn: 1 };
   return items.sort((a, b) => rank[a.severity] - rank[b.severity] || a.date.localeCompare(b.date));
+}
+
+export interface AgendaInput extends OverviewInput { tasks: import('@/lib/schemas').Task[] }
+
+/** Everything with a date in [from, to]: phases, project deadlines, payment dues, action items, tasks. */
+export function agendaItems(d: AgendaInput, from: string, to: string, today: string): DeadlineItem[] {
+  const title = (id: string) => d.projects.find((p) => p.id === id)?.title ?? 'Project';
+  const out = upcomingDeadlines(d, from, to);
+  for (const p of d.payments) {
+    const s = summarisePayment(p, today);
+    if (p.dueDate && s.outstanding > 0 && p.dueDate >= from && p.dueDate <= to) {
+      out.push({ date: p.dueDate, title: `Payment due: ${p.label} — ₹${s.outstanding.toLocaleString('en-IN')}`, detail: title(p.projectId), href: `/dashboard/payments?project=${p.projectId}`, kind: 'payment' });
+    }
+  }
+  for (const dsc of d.discussions) for (const a of dsc.actionItems) {
+    if (!a.done && a.due && a.due >= from && a.due <= to) out.push({ date: a.due, title: a.text, detail: `${a.owner || 'Unassigned'} · ${title(dsc.projectId)}`, href: `/dashboard/projects/${dsc.projectId}?tab=discussions`, kind: 'action' });
+  }
+  for (const t of d.tasks) {
+    if (t.status !== 'done' && t.due && t.due >= from && t.due <= to) out.push({ date: t.due, title: t.title, detail: `${t.assignee || 'Unassigned'} · ${title(t.projectId)}`, href: `/dashboard/projects/${t.projectId}?tab=tasks`, kind: 'task' });
+  }
+  return out.sort((a, b) => a.date.localeCompare(b.date));
 }
