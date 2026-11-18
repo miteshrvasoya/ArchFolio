@@ -105,3 +105,20 @@ export function parseRupees(input: string): number | null {
   const mult = m[2] === 'cr' || m[2] === 'crore' ? 1_00_00_000 : m[2] && m[2].startsWith('l') ? 1_00_000 : m[2] === 'k' ? 1_000 : 1;
   return Math.round(v * mult);
 }
+
+/** Current IST wall-clock time as a datetime-local value: "YYYY-MM-DDTHH:mm". */
+export function nowLocalIST(now: Date = new Date()): string {
+  return isoToLocalIST(now.toISOString());
+}
+
+/** ISO instant → IST datetime-local value. */
+export function isoToLocalIST(iso: string): string {
+  const parts = new Intl.DateTimeFormat('en-CA', { timeZone: IST, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date(iso));
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? '00';
+  return `${get('year')}-${get('month')}-${get('day')}T${get('hour')}:${get('minute')}`;
+}
+
+/** IST datetime-local value → ISO string with the +05:30 offset. */
+export function localISTToIso(local: string): string {
+  return `${local.slice(0, 16)}:00+05:30`;
+}
